@@ -9,6 +9,59 @@
             header('location: login.php');
         }
 
+        //update product
+
+        if(isset($_POST['update'])) {
+            $post_id = $_GET['id'];
+
+            $name = $_POST['name'];
+            $name = filter_var($name, FILTER_SANITIZE_STRING);
+
+            $price = $_POST['price'];
+            $price = filter_var($price, FILTER_SANITIZE_STRING);
+
+            $content = $_POST['content'];
+            $content = filter_var($content, FILTER_SANITIZE_STRING);
+
+            $status = $_POST['status'];
+            $status = filter_var($status,FILTER_SANITIZE_STRING);        
+
+            //update product
+
+            $update_product = $conn->prepare("UPDATE `products` SET name = ?,price=?,
+            product_detail = ?,status =? WHERE id = ?");
+            $update_product->execute([$name,$price,$content,$status,$post_id]);
+
+            $success_msg[] = 'product updated';
+
+            $old_image = $_POST['old_image'];
+            $image = $_FILES['image']['name'];
+            $image = filter_var($image, FILTER_SANITIZE_STRING);
+            $image_size = $_FILES['image']['size'];
+            $image_tmp_name = $_FILES['image']['tmp_name'];
+            $image_folder = '../image/'.$image;
+
+            $select_image = $conn->prepare("SELECT * FROM `products` WHERE image=?");
+            $select_image->execute([$image]);
+
+            if(!empty($image)) {
+                if($image_size>2000000) {
+                    $warning_msg[] = 'image size is too large';
+                } else if ($select_image->rowCount()>0 AND $image != '') {
+                    $warning_msg[] = 'please rename your image';
+                } else {
+                    $update_image = $conn->prepare("UPDATE `products` SET image = ? WHERE id = ?");
+                    $update_image->execute([$image,$post_id]);
+                    move_uploaded_file($image_tmp_name,$image_folder);
+
+                    if($old_image != $image AND $old_image!='') {
+                        unlink('../image/'.$old_image);
+                    }
+                    $success_msg[] = 'image uploaded';
+                }
+            }
+        }
+
 
         //delete product
 
@@ -71,41 +124,59 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="old_image" value="<?= $fetch_product['image']; ?>">
                         <input type="hidden" name="product_id" value="<?= $fetch_product['id']; ?>">
+
                         <div class="input-field">
                             <label> update status</label>
                             <select name="status">
-                                <option selected disabled value="<?= $fetch_product['status']; ?>"><?= $fetch_product['image']; ?> </option>
+                                <option value="<?= $fetch_product['status'] ?>" selected><?= $fetch_product['status'] ?> </option>
                                 <option value="active">active</option>
                                 <option value="deactive">deactive</option>
                             </select>
                         </div>
                         <div class="input-field">
                             <label>product name</label>
-                            <input type="text" name="name" value="<?= $fetch_product['name']; ?>">
+                            <input type="text" name="name" value="<?= $fetch_product['name'] ?>">
 
                         </div>
 
                         <div class="input-field">
                             <label>product price</label>
-                            <input type="number" name="price" value="<?= $fetch_product['price']; ?>"> 
+                            <input type="number" name="price" value="<?= $fetch_product['price'] ?>"> 
+                        </div>
+
+                        <div class="input-field">
+                            <label>product description</label>
+                            <textarea name = "content"><?= $fetch_product['product_detail']; ?></textarea>
+
+                        </div>
+                        <div class="input-field">
+                            <label>product image</label>
+                            <input type="file" name = "image" accept = "image/*">
+                            <img src="../image/<?= $fetch_product['image']; ?>">
+                        </div>
+
+                        <div class="flex-btn">
+                            <button type = "submit" name = "update" class = "btn">update product</button>
+                            <a href = "view_product.php" class = "btn">go back</a>
+                            <button type = "submit" name = "delete" class = "btn">delete product</button>
                         </div>
                     </form>
                 </div>
                 <?php 
 
-}
-}else{
-echo'
-<div class = "empty">
-<p>No product added yet! <br> <a href="add_products.php" style="margin-top:1.5rem;" class="btn"> Add product</a></p>
-</div>
-';
-}
-?>
+                            }
+                    }else{
+                        echo '
+                            <div class = "empty">
+                                <p>No product added yet! <br> <a href="add_products.php" style="margin-top:1.5rem;" class="btn"> Add product</a></p>
+                            </div>
+                        ';
+                    }
+                ?>
         </section>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-        <script type="text/javascript" src="script.js"></script>
-        <?php include '../components/alert.php'; ?>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <?php include '../components/alert.php'; ?>
 </body>
 </html>

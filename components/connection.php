@@ -1,7 +1,7 @@
 <?php
    $db_name = 'mysql:host=localhost;dbname=BTLcsdl';
    $user_name = 'root';
-   $user_password = 'bts13062013';
+   $user_password = '';
 
    $conn = new PDO($db_name,$user_name, $user_password );
 

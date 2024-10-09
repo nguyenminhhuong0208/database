@@ -93,6 +93,7 @@ select {
   width: 100%;
   margin: 1rem 0;
   box-shadow: var(--box-shadow);
+  font-size: 20px;
 }
 input[type="submit"] {
   cursor: pointer;
@@ -162,6 +163,11 @@ section,
   padding: 4%;
   margin: 8% 4%;
   margin-bottom: 2%;
+}
+.edit-post .flex-btn .btn{
+  width: 33%;
+  margin: .5rem;
+  text-align: center;
 }
 /*------------scoll bar------------------*/
 ::-webkit-scrollbar {
@@ -375,7 +381,6 @@ header.scrolled a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  //border-radius: 0.5rem;
 }
 
 .read-post form {
@@ -465,4 +470,45 @@ header.scrolled a:hover {
   .form {
     width: 100%;
   }
+}
+
+.accounts .box-container .box {
+  font-size: 1.5rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  padding-bottom: 3rem;
+  line-height: 1.7;
+  color: #555;
+}
+.accounts .box-container .box span {
+  color: orange;
+}
+
+.order-container .box-container .box {
+  font-size: 1.3rem;
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  padding: 2rem 1.5rem;
+  padding-bottom: 3rem;
+  line-height: 1.7;
+  color: #555;
+  position: relative;
+}
+.order-container .status{
+  position:absolute;
+  left: 5%;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding: .5rem 1.5rem;
+  display: inline-block;
+  background: var(--light-green);
+  border-radius: .5 rem;
+}
+.order-container .detail{
+  margin-top: 3rem;
+  text-transform: capitalize;
 }

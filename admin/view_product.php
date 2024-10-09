@@ -42,7 +42,7 @@
                         <h1>all products</h1>
                 </div>
                 <div class="title2">
-                        <a href="dashboard.php">dashboard</a><span>/ all products</span>
+                        <a href="dashboard.php">dashboard</a><span> / all products</span>
                 </div>
         <section class="show_post">
                 <h1 class="heading">all products</h1>

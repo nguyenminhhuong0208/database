@@ -74,6 +74,15 @@ CREATE TABLE `message` (
   `message` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Thêm dữ liệu cho bảng `message`
+--
+
+INSERT INTO `message` (`id`,`user_id`,`name`,`email`,`subject`,`message`) VALUES
+('0','0','thuong','thuong@gmail.com','shop','good'),
+('Ir7qjxTxaQm9PM5drpEn','HE2LLAWoKWTiQRLHaa6O', 'toen', 'toen@gmail.com','maths,science','bad'),
+('GE2LLAWjKATiQRLHaa6O', 'Ir8qj8Txaem9PM5drpEn','huong123', 'huong@gmail.com','shop','ok');
+
 -- --------------------------------------------------------
 
 --
@@ -125,6 +134,15 @@ CREATE TABLE `users` (
   `password` varchar(50) NOT NULL,
   `user_type` varchar(100) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Thêm dữ liệu cho bảng `message`
+--
+INSERT INTO `users` (`id`,`name`,`email`,`password`,`user_type`) VALUES
+('UAVjN46f0bvXSKquej8S', 'thuong', 'thuong@gmail.com','thuong123','user'),
+('Ir7qjxTxaQm9PM5drpEn', 'toen', 'toen@gmail.com','toen','user'),
+('GE2LLAWjKATiQRLHaa6O', 'huong', 'huong@gmail.com','huong123','user');
+
 
 -- --------------------------------------------------------
 

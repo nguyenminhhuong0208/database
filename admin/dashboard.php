@@ -27,7 +27,7 @@
                         <h1>dashboard</h1>
                 </div>
                 <div class="title2">
-                        <a href="dashboard.php">home</a><span>dashboard</span>
+                        <a href="dashboard.php">Home</a><span> / Dashboard</span>
                 </div>
         <section class="dashboard">
                 <h1 class="heading">dashboard</h1>
@@ -75,7 +75,7 @@
                                 ?>
                                 <h3><?= $num_of_users; ?></h3>
                                 <p>registered users</p>
-                                <a href="account.php" class="btn">view users</a> <!-- sửa từ acconts thành account -->
+                                <a href="user_account.php" class="btn">view users</a> <!-- sửa từ acconts thành account -->
                         </div>
                         <div class="box">
                                 <?php
@@ -85,7 +85,7 @@
                                 ?>
                                 <h3><?= $num_of_admin; ?></h3>
                                 <p>registered admin</p>
-                                <a href="account.php" class="btn">view admin</a> <!-- sửa từ acconts thành account -->
+                                <a href="user_account.php" class="btn">view admin</a> <!-- sửa từ acconts thành account -->
                         </div>
                         <div class="box">
                                 <?php
@@ -95,7 +95,7 @@
                                 ?>
                                 <h3><?= $num_of_message; ?></h3>
                                 <p>unnead message</p>
-                                <a href="message.php" class="btn">view message</a>
+                                <a href="admin_message.php" class="btn">view message</a>
                         </div>
                         <div class="box">
                                 <?php

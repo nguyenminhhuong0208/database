@@ -20,7 +20,7 @@ if(isset($_POST['register'])){
     $image = $_FILES['image']['name'];
     $image = filter_var($image, FILTER_SANITIZE_STRING);
     $image_tmp_name = $_FILES['image']['tmp_name'];
-    $image_folder = './image/'.$image;
+    $image_folder = '../image/'.$image;
 
     $select_email = $conn->prepare("SELECT * FROM `admin` WHERE email = ?");
     $select_email->execute([$email]);
