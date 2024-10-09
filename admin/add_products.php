@@ -29,7 +29,7 @@
             $image = filter_var($image, FILTER_SANITIZE_STRING);
             $image_size = $_FILES['image']['size'];
             $image_tmp_name = $_FILES['image']['tmp_name'];
-            $image_folder = '../image'.$image;
+            $image_folder = '../image/'.$image;
             
             $select_iamge = $conn->prepare("SELECT * FROM `products` WHERE image=?");
             $select_iamge->execute([$image]);
@@ -117,7 +117,7 @@
                         <h1>add products</h1>
                 </div>
                 <div class="title2">
-                        <a href="dashboard.php">dashboard</a><span>add products</span>
+                        <a href="dashboard.php">dashboard</a><span> / add products</span>
                 </div>
         <section class="form-container">
                 <h1 class="heading">add products</h1>

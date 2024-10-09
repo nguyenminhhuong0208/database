@@ -5,7 +5,7 @@
             <a href = "dashboard.php">dashboard</a>
             <a href = "add_products.php">add product</a>
             <a href = "view_product.php">view product</a>
-            <a href = "accounts.php">accounts</a>
+            <a href = "user_account.php">accounts</a>
         </nav>
         <div class="icon">
             <i class = "bx bxs-user" id = "user-btn"></i>
@@ -25,7 +25,7 @@
             </div>
             <div class="flex-btn">
                  <a href="profile.php" class="btn">profile</a>
-                 <a href="./admin_logout.php" onclick = "return confirm('logout
+                 <a href="../components/admin_logout.php" onclick = "return confirm('logout
                  from this website');" class="btn">logout</a>
             </div>
             <?php
