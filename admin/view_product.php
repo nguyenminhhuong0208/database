@@ -59,7 +59,7 @@
                        <form action="" method="post" class="box">
                         <input type="hidden" name = "product_id" value="<?= $fetch_products['id']; ?>">
                         <?php if($fetch_products['image'] != ''){ ?>
-                                <img src="../image/<?= $fetch_products['image']; ?>" class="image">
+                                <img src="../img/<?= $fetch_products['image']; ?>" class="image">
                         <?php } ?>
                         <div class="status" style="color: <?php if($fetch_products['status'] == 'active'){echo "green";}else{echo "red";} ?>; "><?= $fetch_products['status']; ?>
                         </div>
