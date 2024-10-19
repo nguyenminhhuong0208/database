@@ -1,99 +1,99 @@
 <?php
-include 'components/connection.php';
-session_start();
+include '../components/alert.php';
+include '../components/connection.php';
+if(isset($_POST['register'])){
 
-if(isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-}else{
-    $user_id = '';
-
-}
-
-//register user
-if(isset($_POST['submit'])){
     $id = unique_id();
+
     $name = $_POST['name'];
-    $name = filter_var($name, FILTER_SANITIZE_STRING);
+    $name = filter_var($name,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
     $email = $_POST['email'];
-    $email = filter_var($name, FILTER_SANITIZE_STRING);
-    $pass = $_POST['pass'];
-    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-    $cpass = $_POST['cpass'];
-    $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
+    $email = filter_var($email,FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
 
-    $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
-    $select_user->execute([$email]);
-    $row = $select_user->fetch(PDO::FETCH_ASSOC);
+    $pass = sha1($_POST['password']);
+    $pass = filter_var($pass,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-    if($select_user->rowCount() > 0){
-        $message[] = 'Email already exist!';
-        echo 'Email already exist!';
+    $confirmpass = sha1($_POST['confirmpass']);
+    $confirmpass = filter_var($confirmpass,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+    $image = $_FILES['image']['name'];
+    $image = filter_var($image, FILTER_SANITIZE_STRING);
+    $image_tmp_name = $_FILES['image']['tmp_name'];
+    $image_folder = '../image/'.$image;
+
+    $select_email = $conn->prepare("SELECT * FROM `admin` WHERE email = ?");
+    $select_email->execute([$email]);
+
+    if($select_email->rowCount() > 0){
+        $warning_msg[] = 'Email already exits';
     }else{
-        if($pass != $cpass){
-            $message[] = 'Comfirm your password';
-            echo 'Comfirm your password';
+        if($pass!= $confirmpass){
+            $warning_msg[] = 'Confirm password not matched! Please do it again';
         }else{
-            $insert_user = $conn->prepare("INSERT INTO `users`(id,name,email,password) VALUES(?,?,?,?)");
-            $insert_user->execute([$id,$name,$email,$pass]);
-            header('location: home.php');
-            $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
-            $select_user->execute([$email, $pass]);
-            $row = $select_user->fetch(PDO::FETCH_ASSOC);
-            if($select_user->rowCount() > 0){
-                $_SESSION['user_id'] = $row['id'];
-                $_SESSION['user_name'] = $row['name'];
-                $_SESSION['user_email'] = $row['email'];
-
-            }
+            $insert_in = $conn-> prepare("INSERT INTO `admin` (id,name,email,password,profile)
+             VALUES(?,?,?,?,?)");
+            $insert_in-> execute([$id, $name, $email, $confirmpass,$image]);
+            move_uploaded_file($image_tmp_name, $image_folder);
+            $success_msg[] = 'Register successfully!';
         }
     }
-
 }
 ?>
 
-
-<style type="text/css">
-    <?php include 'styleregister.css'; ?>
-</style>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green tea - Resgiter now</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
+    <link rel="stylesheet" href="admin_style.css?v=<?php echo time(); ?>">
+    <title>Register in our page</title>
 </head>
 <body>
-    <div class="main-container">
-        <section class="form-container">
-            <div class="title">
-        <img src="img/download.png">
-        <h1>Register Now</h1>
-        <p class="text"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus porro voluptate aspernatur exercitationem. Aliquam, reiciendis accusamus! </p>
-    </div>
-    <form action="" method="post">
-        <div class="input-field">
-            <p >Your name <sup>*</sup></p>
-            <input type="text" name="name" required placeholder="Enter your name" maxlength="50">
-        </div>
-        <div class="input-field">
-            <p >Your email <sup>*</sup></p>
-            <input type="email" name="email" required placeholder="Enter your email" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-        </div>
-        <div class="input-field">
-            <p>Your password <sup>*</sup></p>
-            <input type="password" name="pass" required placeholder="Enter your password" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-        </div>
-        <div class="input-field">
-            <p>Confirm password <sup>*</sup></p>
-            <input type="password" name="cpass" required placeholder="Enter your password" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-        </div>
+    <div class ="main_contain">
+        <section>
+            <div class = "form_container" id = "admin_login">
+                <form action="" method = "post" enctype="multipart/form-data">
+                    <h3>Register now</h3>
+                    <div class = "input_flied">
+                        <label > User name <sup>*</sup></label>
+                        <input type="text" name ="name" maxlength="20" required placeholder="Enter your username" oninput="this.value.replace(/\s/g,'')">
+                    </div>
 
-        <button type ="submit" name="submit" class="btn">Register now</button>
-        <p>Already have an account? <a href="login.php">Login now</a></p>
-    </form>
+                    <div class = "input_flied">
+                        <label > User email <sup>*</sup></label>
+                        <input type="email" name ="email" maxlength="20" required placeholder="Enter your email" oninput="this.value.replace(/\s/g,'')">
+                    </div>
 
+                    <div class = "input_flied">
+                        <label > Password <sup>*</sup></label>
+                        <input type="password" name ="password" maxlength="20" required placeholder="Enter your password" oninput="this.value.replace(/\s/g,'')">
+                    </div>
+
+                    <div class = "input_flied">
+                        <label > Confirm password <sup>*</sup></label>
+                        <input type="password" name ="confirmpass" maxlength="20" required
+                        placeholder="Confirm password" oninput="this.value.replace(/\s/g,'')">
+                    </div>
+
+                    <div class = "input_flied">
+                        <label > Select profile <sup>*</sup></label>
+                        <input type="file" name ="image" accept = "image">
+                    </div>
+
+                    <button type ="submit" name="register" class="btn">Register now</button>
+                    <p>Already have an account ? 
+                        <a href="login.php"> Login now</a> </p>
+                </form>
+
+            </div>
         </section>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <script type="text/javascript" src="script.js"></script>
+<?php include '../components/alert.php'; ?>
 </body>
 </html>
