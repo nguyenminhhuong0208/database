@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --grean: #87a243;
+  --light-green: #e0ffcd;
+  --box-shadow: 0 0 10px rgb(0 0 0/15%);
+}
+
+html {
+  font-size: 16px;
+  font-family: sans-serif;
+  --ms-overflow-style: scrollbar;
+  -moz-text-size-adjust: 100%;
+  --webkit-text-size-adjust: 100%;
+}
+body {
+  background-image: url(./img/tom_-_jerry.jpg);
+  width: 100%;
+}
+.main-container {
+  width: 85vw;
+  background: #fff;
+  box-shadow: 0 2px 6 px 0 rgb(0 0 0/10%);
+  margin: 1rem auto;
+  margin-top: 10rem;
+  padding: 2%;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.btn {
+  line-height: 2;
+  background-color: var(--light-green);
+  padding: 5px 35px;
+  display: inline-block;
+  border-radius: 20px;
+  color: #000;
+  text-transform: capitalize;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  transition: color 0.3s ease;
+  z-index: 2;
+  margin-top: 1.5rem;
+}
+
+.btn::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  background: var(--grean);
+  color: #fff;
+  height: 100%;
+  width: 0;
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+.btn:hover::before {
+  width: 100%;
+}
+
+.btn:hover {
+  color: #ffffff;
+}
+
+.title {
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.text {
+  text-align: left;
+  font-size: 1rem;
+  color: var(--grean);
+}
+
+h1 {
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.empty,
+.message {
+  border-radius: 0.5rem;
+  background: var(--grean);
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: 100%;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  line-height: 2;
+  color: #fff;
+}
+input,
+textarea,
+button,
+select {
+  background: transparent;
+  border-radius: 15px;
+  padding: 1rem;
+  outline: none;
+  border: none;
+  width: 100%;
+  margin: 0.5rem 0.5rem;
+  box-shadow: var(--box-shadow);
+  font-size: 16px;
+}
+input[type="submit"] {
+  cursor: pointer;
+}
+.option {
+  background: var(--grean);
+  cursor: pointer;
+  padding: 1rem;
+}
+label {
+  text-transform: uppercase;
+  color: var(--light-green);
+}
+
+.form-container {
+  width: 60vw;
+  margin: 0 auto;
+}
+.form-container form {
+  width: 100%;
+  margin: 1rem auto;
+  background: rgb(255 255 255/80%);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  position: relative;
+  border-radius: 5px;
+}
+.form-container form p {
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0.5rem 0.5rem;
+  margin-bottom: 0.3rem;
+  color: #87a243;
+}
+.form-container form p a {
+  color: palevioletred;
+}
+textarea {
+  height: 200px;
+}
+sup {
+  color: red;
+}
+.box_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  align-items: center;
+  justify-content: center;
+}
+.box_container .box {
+  margin: 1rem;
+}
+.heading {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+section,
+.post_editor {
+  width: 75vw;
+  min-height: 100vh;
+  border-radius: 10px;
+  padding: 4%;
+  margin: 8% 4%;
+  margin-bottom: 2%;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  height: 50px;
+  margin: 30px 0;
+  background: var(--grean);
+  position: relative;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  margin: 30px 10px;
+}
