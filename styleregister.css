@@ -20,7 +20,7 @@ body {
   background-image: url(./img/tom_-_jerry.jpg);
   width: 100%;
 }
-.main_contain {
+.main-container {
   width: 85vw;
   background: #fff;
   box-shadow: 0 2px 6 px 0 rgb(0 0 0/10%);
@@ -51,6 +51,8 @@ ul {
   overflow: hidden;
   vertical-align: middle;
   transition: color 0.3s ease;
+  z-index: 2;
+  margin-top: 1.5rem;
 }
 
 .btn::before {
@@ -67,8 +69,32 @@ ul {
   transition: width 0.3s ease;
 }
 .btn:hover::before {
-  color: #fff;
+  width: 100%;
 }
+
+.btn:hover {
+  color: #ffffff;
+}
+
+.title {
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.text {
+  text-align: left;
+  font-size: 1rem;
+  color: var(--grean);
+}
+
+h1 {
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
 .empty,
 .message {
   border-radius: 0.5rem;
@@ -86,13 +112,14 @@ textarea,
 button,
 select {
   background: transparent;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 1rem;
   outline: none;
   border: none;
   width: 100%;
-  margin: 1rem 0;
+  margin: 0.5rem 0.5rem;
   box-shadow: var(--box-shadow);
+  font-size: 16px;
 }
 input[type="submit"] {
   cursor: pointer;
@@ -107,16 +134,11 @@ label {
   color: var(--light-green);
 }
 
-form h3 {
-  text-align: center;
-  text-transform: capitalize;
-  margin-bottom: 1rem;
-}
-.form_container {
+.form-container {
   width: 60vw;
   margin: 0 auto;
 }
-.form_container form {
+.form-container form {
   width: 100%;
   margin: 1rem auto;
   background: rgb(255 255 255/80%);
@@ -125,11 +147,14 @@ form h3 {
   position: relative;
   border-radius: 5px;
 }
-.form_container form p {
-  text-transform: inherit;
-  margin: 1rem 0;
+.form-container form p {
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0.5rem 0.5rem;
+  margin-bottom: 0.3rem;
+  color: #87a243;
 }
-.form_container form p a {
+.form-container form p a {
   color: palevioletred;
 }
 textarea {
