@@ -264,3 +264,82 @@ header.scrolled{
     }
 }
 
+/*------view product section--------*/
+.products .box-container{
+    grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));
+    justify-content: center;
+}
+.products .box-container .box{
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    padding: 2rem 1rem;
+    margin: 1rem;
+    position: relative;
+}
+.products .box-container .box .img{
+    width: 80%;
+    height: auto;
+}
+
+.products .box-container .box .name{
+    font-size: 1.2rem;
+    color: #555;
+    text-transform: capitalize;
+}
+.products .box-container .box .button{
+    text-align: center;
+    position: absolute;
+    bottom: 30%;
+    right: 7%;
+    border-radius: 20px;
+    background: var(--light-green);
+    padding: .5rem 1.5rem;
+}
+.products .box-container .box .button i,
+.products .box-container .box .button a{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-right: .5rem;
+    color: #000;
+}
+.products .box-container .box .flex{
+    padding-bottom: 1rem;
+}
+.products .box-container .box .price{
+    font-size: 1.1rem;
+    display: flex;
+    margin-right: auto;
+}
+.products .box-container .box .btn{
+    position: absolute;
+    top:5%;
+}
+.products .box-container .box .flex .qty{
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    width: 4.5rem;
+    font-size: 1.1rem;
+    color: #000;
+}
+.products .box-container .box .flex .fa-edit{
+    border-radius: .5rem;
+    font-size: 1.7rem;
+    color: #000;
+    height: 3.5rem;
+    width: 4.5rem;
+    cursor: pointer;
+}
+.products .box-container .box .flex .fa-edit:hover{
+    background: var(--light-green);
+}
+.products .box-container .box .sub-total{
+    padding-bottom: 1rem;
+    font-size: 1.7rem;
+    color: gray;
+}
+.products .box-container .box .sub-total .span{
+    color: red;
+}
+.products .box-container .box .button{
+    align-items: center;
+}

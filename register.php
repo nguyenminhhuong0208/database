@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $name = filter_var($name, FILTER_SANITIZE_STRING);
     $email = $_POST['email'];
-    $email = filter_var($name, FILTER_SANITIZE_STRING);
+    $email = filter_var($email, FILTER_SANITIZE_STRING);
     $pass = $_POST['pass'];
     $pass = filter_var($pass, FILTER_SANITIZE_STRING);
     $cpass = $_POST['cpass'];
@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
 
 
 <style type="text/css">
-    <?php include 'styleregister.css'; ?>
+    <?php include 'style.css'; ?>
 </style>
 
 <!DOCTYPE html>
