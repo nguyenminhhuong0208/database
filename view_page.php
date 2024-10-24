@@ -74,47 +74,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
-    <title>Green Coffee - shop page</title>
+    <title>Green Coffee - product detail page</title>
 </head>
 <body>
     <?php include 'components/header.php'; ?>
     <div class="main">
         <div class="banner">
-            <h1>shop</h1>
+            <h1>product detail</h1>
         </div>
         <div class="title2">
-            <a href="home.php">home</a><span>/ our shop</span>
+            <a href="home.php">home</a><span>/ product detail</span>
         </div>
-        <section class="products">
-            <div class="box-container">
-                <?php
-                    $select_products = $conn->prepare("SELECT * FROM `products`");
+        <section class="view_page">
+            <?php
+                if (isset($_GET['pid'])) {
+                    $pid = $_GET['pid'];
+                    $select_products = $conn->prepare("SELECT * FROM products WHERE id = '$pid'");
                     $select_products->execute();
-                    if($select_products->rowCount() > 0) {
-                        while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-                ?>
-                <form action="" method="post" class="box">
-                    <img src="img/<?=$fetch_products['image']; ?>" class="image">
+                    if ($select_products->rowCount() > 0) {
+                        while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+            ?>
+            <form method="post">
+                <img src="img/<?php echo $fetch_products['image']; ?>">
+                <div class="detail">
+                    <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
+                    <div class="name"><?php echo $fetch_products['name']; ?></div>
+                    <div class="detail">
+                        <p>Our ceremonial-grade matcha powder is a true taste of Japan. Grown in the shade and stone-ground to preserve its vibrant green color and rich nutrients, 
+                            our matcha offers a unique umami flavor and a smooth, creamy texture. Packed with antioxidants and L-theanine, 
+                            our matcha provides a natural energy boost without the jitters. 
+                            Whether you're a matcha connoisseur or simply looking to incorporate more superfoods into your diet, our matcha is the perfect choice.</p>
+                    </div>
+                    <input type="hidden" name="product_id" value="<?php echo $fetch_products['id']; ?>">
                     <div class="button">
-                        <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
-                        <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
-                        <a href="view_page.php?pid=<?php echo $fetch_products['id'];?>" class="bx bxs-show"></a>
+                        <button type="submit" name="add_to_wishlist" class="btn">add to wishlist<i class="bx bx-heart">
+                        </i></button>
+                        <input type="hidden" name="qty" value="1" min="0" class="quantity">
+                        <button type="submit" name="add_to_cart" class="btn">add to cart<i class="bx bx-cart">
+                        </i></button>
                     </div>
-                    <h3 class="name"><?=$fetch_products['name'];?></h3>
-                    <input type="hidden" name="product_id" value="<?=$fetch_products['id'];?>">
-                    <div class="flex">
-                        <p class="price">Price $<?=$fetch_products['price'];?>/-</p>
-                        <input type="number" name="qty" required min="1" max="99" maxlength="2" class="qty">
-                    </div>
-                    <a href="checkout.php?get_id=<?=$fetch_products['id'];?>" class="btn">Buy now</a>
-                </form>
-                <?php
-                        }
-                    } else {
-                        echo '<p class="empty">No products added yet!</p>';
+                </div>
+            </form>
+            <?php
                     }
-                ?>
-            </div>
+                }
+            }
+            ?>
         </section>
     </div>
     <!-- //<?php include 'components/footer.php'; ?> -->
