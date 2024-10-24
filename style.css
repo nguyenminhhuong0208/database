@@ -343,3 +343,49 @@ header.scrolled{
 .products .box-container .box .button{
     align-items: center;
 }
+/* -----------------view products-------------------- */
+.view_page{
+    padding: 5% 8%;
+    background-image: url('img/bg.jpg');
+}
+.view_page form{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    background: #fff;
+    margin-left: 1rem;
+    padding: 1.5rem;
+}
+.view_page form img {
+    padding: .5rem;
+    box-shadow: var(--box-shadow);
+  }
+.view_page form .name {
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: var(--green);
+}
+.view_page form .price {
+    font-size: 24px;
+    line-height: 1;
+}
+.view_page form .detail {
+    font-size: 16px;
+    color: gray;
+    line-height: 2;
+    margin-bottom: .5rem;
+}
+.view_page .btn {
+    background: var(--light-green);
+    cursor: pointer;
+}
+.cart-total .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-total .button .btn {
+    margin: 1rem;
+}
