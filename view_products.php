@@ -83,7 +83,7 @@
             <h1>shop</h1>
         </div>
         <div class="title2">
-            <a href="home.php">home</a><span>/ our shop</span>
+            <a href="home.php">home</a><span>\ our shop</span>
         </div>
         <section class="products">
             <div class="box-container">
@@ -94,7 +94,7 @@
                         while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                 <form action="" method="post" class="box">
-                    <img src="img/<?=$fetch_products['image']; ?>" class="image">
+                    <img src="image/<?=$fetch_products['image']; ?>" class="image"s>
                     <div class="button">
                         <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
                         <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
