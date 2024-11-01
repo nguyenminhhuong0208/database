@@ -363,3 +363,108 @@ header.scrolled{
 .products .cart-total p span{
     color: var(--green);
 }
+/* -----------checkout page----------- */
+.checkout .row {
+    display: flex;
+    flex-direction: column;
+    flex-flow: column-reverse;
+}
+.checkout .row form,
+.checkout .summary {
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    width: 1000px;
+    padding: 1rem;
+    margin: 1rem auto;
+}
+.checkout h3 {
+    font-size: 2rem;
+    color: #000;
+    padding-bottom: 1rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: var(--green);
+}
+.checkout .row form .input {
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    color: #000;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+.checkout .row form .flex {
+    display: flex;
+    column-gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.checkout .row form .flex .box {
+    flex: 1 1 30rem;
+}
+.checkout .row form p {
+    padding-top: 1rem;
+    font-size: 1.3rem;
+    color: #555;
+    text-transform: capitalize;
+}
+.checkout .row form p span {
+    color: red;
+}
+.checkout .row form .btn {
+    width: 100%;
+}
+.summary .title {
+    font-size: 2.2rem;
+    color: #000;
+    margin-bottom: .5rem;
+    text-transform: capitalize;
+    padding-bottom: 1.5rem;
+}
+.summary .flex {
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1.5rem;
+    padding: 1rem;
+    margin: .4rem;
+}
+.summary .flex img {
+    box-shadow: var(--box-shadow);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: .4rem;
+    margin-right: 2rem;
+}
+.summary .flex .name {
+    font-size: 1.1rem;
+    padding-bottom: .5rem;
+    text-transform: capitalize;
+    color: #000;
+}
+.summary .flex .price {
+    font-size: 1.5rem;
+    color: red;
+}
+.summary .grand-total {
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    text-transform: capitalize;
+}
+.summary .grand-total span {
+    color: #555;
+}
+.summary .grand-total p {
+    color: red;
+}
+
+
