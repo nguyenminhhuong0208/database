@@ -33,21 +33,26 @@
             $get_product->execute([$_GET['get_id']]);
             if ($get_product->rowCount() > 0) {
                 while ($fetch_p = $get_product->fetch(PDO::FETCH_ASSOC)) {
-                    $insert_order = $conn->prepare("INSERT INTO `orders` (id, user_id, name, number, email, address, address_type,
-                        $method, product_id, price, qty)VALUE(?,?,?,?,?,?,?,?,?,?,?)");
-                    $insert_order->execute([unique_id(), $user_id, $name, $number, $email, $address, $address_type, $method, 
-                    $fetch_p['id'], $fetch_p['price'], 1]); 
+                    echo "<pre>";
+print_r([$user_id, $name, $number, $email, $address, $address_type, $method, $fetch_p['id'], $fetch_p['price'], 1]);
+echo "</pre>";
+
+                    $insert_order = $conn->prepare("INSERT INTO `orders` (id, user_id, name, number, email, address, address_type, method, product_id, price, qty) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+                    $insert_order->execute([unique_id(), $user_id, $name, $number, $email, $address, $address_type, $method, $fetch_p['id'], $fetch_p['price'], 1]);
+
                     header('location: order.php');
+                    exit();
                 }
             }else{
                 $warning_msg[] = 'something went wrong';
             }
-        }elseif ($varify_cart->rowCount()>0) {
+        }elseif ($verify_cart->rowCount()>0) {
             if ($verify_cart->rowCount() > 0) {
                 while ($f_cart = $verify_cart->fetch(PDO::FETCH_ASSOC)) {
                     $insert_order = $conn->prepare("INSERT INTO `orders` (id, user_id, name, number, email, address, address_type, method, product_id, price, qty) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                    $insert_order->execute([unique_id(), $user_id, $name, $number, $email, $address, $address_type, $method, $f_cart['id'], $f_cart['price'], $f_cart['qty']]);
-                    header('location: order.php');
+                    $insert_order->execute([unique_id(), $user_id, $name, $number, $email, $address, $address_type, $method, $fetch_p['id'], $fetch_p['price'], 1]);
+
                 }
                 if ($insert_order) {
                     $delete_cart_id = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
@@ -144,7 +149,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" name="palce_order" class="btn">place order</button>
+                        <button type="submit" name="place_order" class="btn">Place Order</button>
                     </form>
                     <div class="summary">
                         <h3>my bag</h3>

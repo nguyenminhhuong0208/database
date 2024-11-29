@@ -31,29 +31,21 @@ if(isset($_POST['logout'])) {
     <div class="banner">
         <h1>Contact us</h1>
     </div>
-    <div class="title2">
-        <a href="home.php"> Home</a> <span>/ contact us</span>
-    </div>
-    <div class="form-container">
-        <form method="post">
-            <div class="title">
-                <img src="img/download.png" alt="" class="logo">
-                <h1>Leave a message</h1>
-            </div>
+    
             <div class="input-field">
-                <p>Your name <sup>*</sup> </p>
+                <p>Your name </p>
                 <input type="text" name="name">
             </div>
             <div class="input-field">
-                <p>Your email <sup>*</sup> </p>
+                <p>Your email </p>
                 <input type="email" name="email">
             </div>
             <div class="input-field">
-                <p>Your number <sup>*</sup> </p>
+                <p>Your number </p>
                 <input type="text" name="number">
             </div>
             <div class="input-field">
-                <p>Your message <sup>*</sup> </p>
+                <p>Your message  </p>
                 <textarea name="message" id=""></textarea>
             </div>
             <button type="submit" name="submit-btn" class="btn"> Send message</button>
@@ -65,29 +57,41 @@ if(isset($_POST['logout'])) {
         <div class="title">
                 <img src="img/download.png" alt="" class="logo">
                 <h1>Contact detail</h1>
-            </div>
+        </div>
 
-            <div class="box-container">
-                <div class="box"> 
-                    <i class="bx bxs-map-pin"></i>
-                    <div>
-                        <h4>Address</h4>
-                        <p>100 WestStone Lane, Milky Way</p>
-                    </div>
+        <div class="box-container">
+            <div class="box"> 
+                <i class="bx bxs-map-pin"></i>
+                <div>
+                    <h4>Address</h4>
+                    <p>Truong Dai Hoc Cong Nghe</p>
                 </div>
-                <div class="box"> 
-                    <i class="bx bxs-phone-call"></i>
-                    <div>
-                        <h4>Phone number</h4>
-                        <p>0367731245</p>
-                    </div>
+            </div>
+            <div class="box"> 
+                <i class="bx bxs-phone-call"></i>
+                <div>
+                <h4>Facebook</h4>
+                    <p><?php
+                        echo '<a href="https://www.facebook.com/profile.php?id=100029231884618" target="_blank">Minh Huong</a>';
+                    ?></p>
                 </div>
-                <div class="box"> 
-                    <i class="bx bxs-map-pin"></i>
-                    <div>
-                        <h4>Email </h4>
-                        <p>myHeartbumpbump512@gmail.com</p>
-                    </div>
+            </div>
+            <div class="box"> 
+                <i class="bx bxs-phone-call"></i>
+                <div>
+                <h4>Facebook</h4>
+                    <p><?php
+                        echo '<a href="https://www.facebook.com/profile.php?id=100051391368220" target="_blank">Thanh Tuyen</a>';
+                    ?></p>
+                </div>
+            </div>
+            <div class="box"> 
+                <i class="bx bxs-phone-call"></i>
+                <div>
+                    <h4>Facebook</h4>
+                    <p><?php
+                        echo '<a href="https://www.facebook.com/hoaithuon.me" target="_blank">Hoai Thuong</a>';
+                    ?></p>
                 </div>
             </div>
         </div>
