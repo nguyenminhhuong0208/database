@@ -466,5 +466,63 @@ header.scrolled{
 .summary .grand-total p {
     color: red;
 }
+/* -----------view products----------- */
+.orders .box-container {
+    padding: 2% 6%;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.orders .box-container .box {
+    box-shadow: var(--box-shadow);
+    border-radius: 0.5em;
+    position: relative;
+    overflow-x: hidden;
+}
+.orders .box-container .box a {
+    display: flex;
+    align-items: center;
+}
+.orders .box-container .box a .row {
+    position: absolute;
+    right: 1%;
+}
+.orders .box-container .box .date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: .5rem 1.5rem;
+    background: var(--light-green);
+    font-size: .6rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    border-radius: .5rem;
+}
+.orders .box-container .box .image {
+    height: 20rem;
+    width: 100%;
+    object-fit: contain;
+    margin-left: -4rem;
+}
+.orders .box-container .box .name {
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    color: #000;
+}
+.orders .box-container .box .price {
+    color: orange;
+    font-size: 1rem;
+}
+.orders .box-container .box .status {
+    margin-left: .5rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+.orders .box-container .box:hover {
+    box-shadow: var(--box-shadow);
+}
 
 

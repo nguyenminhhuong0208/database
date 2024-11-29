@@ -33,7 +33,7 @@
         <div class="title2">
             <a href="home.php">home</a><span>\ order</span>
         </div>
-        <section class="products">
+        <section class="orders">
             <div class="box-container">
                 <div class="title">
                     <image src="img/download.png" class="logo">
