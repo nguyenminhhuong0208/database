@@ -1,3 +1,0 @@
-1. add header.php, in components
-2. add style.css and home.php
-3. add register.php, user_login.php, view_product.php, view_page.php, wishlist.php 
