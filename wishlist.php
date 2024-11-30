@@ -77,8 +77,7 @@
         <div class="title2">
             <a href="home.php">home</a><span>/ wishlist</span>
         </div>
-        <section class="products">
-            <h1 class="title">products added in wishlist</h1>
+        <section class="products">/-strong/-heart:>:o:-((:-h <h1 class="title">products added in wishlist</h1>
             <div class="box-container">
                 <?php
                     $grand_total = 0;
