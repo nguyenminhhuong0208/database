@@ -24,7 +24,7 @@ body {
 main {
   width: 85vw;
   background: #fff;
-  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 6px 0 rgb(0 0 0/10%);
   margin: 1rem auto;
   margin-top: 10rem;
   padding: 2%;
@@ -154,6 +154,12 @@ textarea {
 }
 .title2 a {
   color: var(--green);
+}
+.heading {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 /* -------- header -------- */
 header {
@@ -306,7 +312,7 @@ header.scrolled {
 }
 .products .box-container .box .button {
   position: absolute;
-  bottom: 8rem;
+  bottom: 6rem;
   right: 20px;
   display: flex;
   padding: 5px;
@@ -517,7 +523,53 @@ header.scrolled {
 .summary .grand-total p {
   color: red;
 }
-/* -----------view products----------- */
+/*------------view products---------*/
+.view_page {
+  padding: 5% 8%;
+  background-image: url("img/bg.jpg");
+}
+.view_page form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+  background: #fff;
+  margin-left: 1rem;
+  padding: 1.5rem;
+}
+.view_page form img {
+  padding: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+.view_page form .name {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--green);
+}
+.view_page form .price {
+  font-size: 24px;
+  text-transform: capitalize;
+  color: var(--green);
+}
+.view_page form .detail {
+  font-size: 16px;
+  color: gray;
+  line-height: 2;
+  margin-bottom: 0.5rem;
+}
+.view_page .btn {
+  background: var(--light-green);
+  cursor: pointer;
+}
+.cart-total .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-total .button .btn {
+  margin: 1rem;
+}
+/* -----------view orders----------- */
 .orders .box-container {
   display: flex;
   flex-wrap: wrap;
@@ -689,4 +741,39 @@ header.scrolled {
   align-items: center;
   background: var(--green);
   color: #fff;
+}
+canvas {
+  border: 2px solid #fff;
+  display: none;
+}
+
+#PongGame {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+/*-----------dashboard------------*/
+.dashboard .box-container .box {
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 1.5rem;
+  padding-bottom: 3rem;
+  background-color: #fff;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.dashboard .box-container .box h3 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.dashboard .box-container .box p {
+  font-size: 1.7rem;
+  margin: 1rem 0;
+  text-transform: capitalize;
+  color: #555;
 }
