@@ -83,7 +83,7 @@
             <h1>shop</h1>
         </div>
         <div class="title2">
-            <a href="home.php">home</a><span>\ our shop</span>
+            <a href="home.php">home</a><span> / our shop</span>
         </div>
         <section class="products">
             <div class="box-container">

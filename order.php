@@ -31,7 +31,7 @@
             <h1>my order</h1>
         </div>
         <div class="title2">
-            <a href="home.php">home</a><span>/ order</span>
+            <a href="home.php">home</a><span> / order</span>
         </div>
         <section class="orders">
     <div class="box-container">
