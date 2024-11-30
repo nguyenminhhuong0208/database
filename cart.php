@@ -19,7 +19,7 @@
         $qty = $_POST['qty'];
         $qty = filter_var($qty, FILTER_SANITIZE_STRING);
 
-        $update_qty = $conn->prepare("UPDATE `cart` SET qty = ? WHERE id = ?");
+        $update_qty = $conn->prepare("UPDATE cart SET qty = ? WHERE id = ?");
         $update_qty->execute([$qty, $cart_id]);
 
 
@@ -31,12 +31,12 @@
         $cart_id = $_POST['cart_id'];
         $cart_id = filter_var($cart_id, FILTER_SANITIZE_STRING);
 
-        $varify_delete_items = $conn->prepare("SELECT * FROM `cart` WHERE id = ?");
+        $varify_delete_items = $conn->prepare("SELECT * FROM cart WHERE id = ?");
         $varify_delete_items->execute([$cart_id]);
 
         // Nếu sản phẩm tồn tại, thì xóa
         if ($varify_delete_items->rowCount() > 0) {
-            $delete_cart_id = $conn->prepare("DELETE FROM `cart` WHERE id = ?");
+            $delete_cart_id = $conn->prepare("DELETE FROM cart WHERE id = ?");
             $delete_cart_id->execute([$cart_id]);
             $success_msg = "cart item delete successfully"; // Thông báo thành công
         } else {
@@ -46,12 +46,12 @@
 
     //empty cart
     if (isset($_POST['empty_cart'])) {
-        $varify_delete_items = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
+        $varify_delete_items = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
         $varify_delete_items->execute([$user_id]);
 
         // Nếu sản phẩm tồn tại, thì xóa
         if ($varify_delete_items->rowCount() > 0) {
-            $delete_cart_id = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
+            $delete_cart_id = $conn->prepare("DELETE FROM cart WHERE user_id = ?");
             $delete_cart_id->execute([$user_id]);
             $success_msg = "empty successfully"; // Thông báo thành công
         } else {
@@ -84,7 +84,7 @@
             <div class="box-container">
             <?php
                     $grand_total = 0;
-                    $select_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
+                    $select_cart = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
                     $select_cart->execute([$user_id]);
                     if ($select_cart->rowCount() > 0) {
                         while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {

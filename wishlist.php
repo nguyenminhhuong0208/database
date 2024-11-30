@@ -77,12 +77,11 @@
         <div class="title2">
             <a href="home.php">home</a><span>/ wishlist</span>
         </div>
-        <section class="products">
-            <h1 class="title">products added in wishlist</h1>
+        <section class="products"> <h1 class="title">products added in wishlist</h1>
             <div class="box-container">
                 <?php
                     $grand_total = 0;
-                    $select_wishlist = $conn->prepare("SELECT * FROM wishlist WHERE user_id = ?");
+                    $select_wishlist = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id = ?");
                     $select_wishlist->execute([$user_id]);
                     if ($select_wishlist->rowCount() > 0) {
                         while ($fetch_wishlist = $select_wishlist->fetch(PDO::FETCH_ASSOC)) {
@@ -93,7 +92,7 @@
                 ?>
                 <form method="post" action="" class="box">
                     <input type="hidden" name="wishlist_id" value="<?=$fetch_wishlist['id']; ?>">
-                    <img src="img/<?= $fetch_products['image']; ?>">
+                    <img src="img/<?= $fetch_products['image']; ?>" class ="img">
                     <div class="button">
                         <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
                         <a href="view_page.php?pid=<?php echo $fetch_wishlist['id']; ?>" class="bx bxs-show"></a>

@@ -1,3 +1,6 @@
+<?php include 'components/alert.php'; ?>
+</body>
+</html>
 <header class="header">
     <div class="flex">
         <a href="home.php" class="logo"><img src="img/logo.jpg" alt="Logo"></a>
@@ -9,7 +12,6 @@
             <a href="contact.php">contact us</a>
         </nav>
         <div class="icons">
-            <i class="bx bxs-user" id="user-btn"></i>
             <?php 
                 $count_wishlist_items = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id = ?");
                 $count_wishlist_items->execute([$user_id]);
@@ -24,7 +26,9 @@
             <a href="cart.php" class="cart-btn">
                 <i class="bx bx-cart-download"></i><sup ><?=$total_cart_items?></sup>
             </a>
-            <i class="bx bx-list-plus" id="menu-btn" style="font-size: 2rem;"></i>
+            <a href="login.php" onclick="return confirm('Log out?');">
+                <i class="bx bx-log-out"></i>
+            </a>
         </div>
         <div class="user-box">
             <p>Username: <span><?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest'; ?></span></p>

@@ -16,10 +16,10 @@
         $id = unique_id();
         $product_id = $_POST['product_id'];
 
-        $varify_wishlist = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id = ? AND product_id = ?");
+        $varify_wishlist = $conn->prepare("SELECT * FROM wishlist WHERE user_id = ? AND product_id = ?");
         $varify_wishlist->execute([$user_id,$product_id]);
 
-        $cart_num = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ? AND product_id = ?");
+        $cart_num = $conn->prepare("SELECT * FROM cart WHERE user_id = ? AND product_id = ?");
         $cart_num->execute([$user_id,$product_id]);
 
         if($varify_wishlist->rowCount()>0) {
@@ -27,7 +27,7 @@
         } else if ($cart_num->rowCount()>0) {
             $warning_msg[] = 'product already exist in your cart';
         } else {
-            $select_price= $conn->prepare("SELECT * FROM `products` WHERE id = ? LIMIT 1");
+            $select_price= $conn->prepare("SELECT * FROM products WHERE id = ? LIMIT 1");
             $select_price->execute([$product_id]);
             $fetch_price=$select_price->fetch(PDO::FETCH_ASSOC);
         
@@ -44,10 +44,10 @@
         $qty = $_POST['qty'];
         $qty = filter_var($qty,FILTER_SANITIZE_STRING);
 
-        $varify_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ? AND product_id = ?");
+        $varify_cart = $conn->prepare("SELECT * FROM cart WHERE user_id = ? AND product_id = ?");
         $varify_cart->execute([$user_id,$product_id]);
 
-        $max_cart_items = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
+        $max_cart_items = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
         $max_cart_items->execute([$user_id]);
 
         if($varify_cart->rowCount()>0) {
@@ -55,7 +55,7 @@
         } else if ($max_cart_items->rowCount()>20) {
             $warning_msg[] = 'cart is full';
         } else {
-            $select_price= $conn->prepare("SELECT * FROM `products` WHERE id = ? LIMIT 1");
+            $select_price= $conn->prepare("SELECT * FROM products WHERE id = ? LIMIT 1");
             $select_price->execute([$product_id]);
             $fetch_price=$select_price->fetch(PDO::FETCH_ASSOC);
         
@@ -88,13 +88,13 @@
         <section class="products">
             <div class="box-container">
                 <?php
-                    $select_products = $conn->prepare("SELECT * FROM `products`");
+                    $select_products = $conn->prepare("SELECT * FROM products");
                     $select_products->execute();
                     if($select_products->rowCount() > 0) {
                         while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                 <form action="" method="post" class="box">
-                    <img src="image/<?=$fetch_products['image']; ?>" class="image"s>
+                    <img src="image/<?=$fetch_products['image']; ?>" class="img">
                     <div class="button">
                         <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
                         <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
@@ -104,7 +104,7 @@
                     <input type="hidden" name="product_id" value="<?=$fetch_products['id'];?>">
                     <div class="flex">
                         <p class="price">Price $<?=$fetch_products['price'];?>/-</p>
-                        <input type="number" name="qty" required min="1" max="99" maxlength="2" class="qty">
+                        <input type="number" name="qty" required min="1" max="99" maxlength="2" class="qty" value="1">
                     </div>
                     <a href="checkout.php?get_id=<?=$fetch_products['id'];?>" class="btn">Buy now</a>
                 </form>
