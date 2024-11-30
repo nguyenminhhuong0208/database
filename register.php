@@ -21,22 +21,22 @@ if(isset($_POST['submit'])){
     $cpass = $_POST['cpass'];
     $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
 
-    $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
+    $select_user = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $select_user->execute([$email]);
     $row = $select_user->fetch(PDO::FETCH_ASSOC);
 
     if($select_user->rowCount() > 0){
-        $message[] = 'Email already exist!';
+        $warning_msg[] = 'Email already exist!';
         echo 'Email already exist!';
     }else{
         if($pass != $cpass){
-            $message[] = 'Comfirm your password';
+            $warning_msg[] = 'Comfirm your password';
             echo 'Comfirm your password';
         }else{
             $insert_user = $conn->prepare("INSERT INTO `users`(id,name,email,password) VALUES(?,?,?,?)");
             $insert_user->execute([$id,$name,$email,$pass]);
-            header('location: home.php');
-            $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
+            $success_msg[] = 'Register successfully!';
+            $select_user = $conn->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
             $select_user->execute([$email, $pass]);
             $row = $select_user->fetch(PDO::FETCH_ASSOC);
             if($select_user->rowCount() > 0){
@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
 
 
 <style type="text/css">
-    <?php include 'style.css'; ?>
+    <?php include 'styleregister.css'; ?>
 </style>
 
 <!DOCTYPE html>
@@ -68,8 +68,8 @@ if(isset($_POST['submit'])){
         <section class="form-container">
             <div class="title">
         <img src="img/download.png">
-        <h1>Register Now</h1>
-        <p class="text"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus porro voluptate aspernatur exercitationem. Aliquam, reiciendis accusamus! </p>
+        <h1>Register User Now</h1>
+        <p class="text"> Let's register to discovery our web </p>
     </div>
     <form action="" method="post">
         <div class="input-field">
@@ -93,7 +93,10 @@ if(isset($_POST['submit'])){
         <p>Already have an account? <a href="login.php">Login now</a></p>
     </form>
 
-        </section>
+    </section>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <?php include 'components/alert.php'; ?>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

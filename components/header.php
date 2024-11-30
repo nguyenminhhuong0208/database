@@ -1,3 +1,6 @@
+<?php include 'components/alert.php'; ?>
+</body>
+</html>
 <header class="header">
     <div class="flex">
         <a href="home.php" class="logo"><img src="img/logo.jpg" alt="Logo"></a>
@@ -23,7 +26,7 @@
             <a href="cart.php" class="cart-btn">
                 <i class="bx bx-cart-download"></i><sup ><?=$total_cart_items?></sup>
             </a>
-            <a href="logout.php" onclick="return confirm('Log out?');">
+            <a href="login.php" onclick="return confirm('Log out?');">
                 <i class="bx bx-log-out"></i>
             </a>
         </div>
