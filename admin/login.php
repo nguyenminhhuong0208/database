@@ -39,7 +39,7 @@
         <section>
             <div class = "form_container" id = "admin_login">
                 <form action="" method = "post" enctype="multipart/form-data">
-                    <h3>Login now</h3>
+                    <h3>Admin Login</h3>
 
                     <div class = "input_flied">
                         <label > User email <sup>*</sup></label>
@@ -54,9 +54,12 @@
                     </div>
 
                     <button type ="submit" name="login" class="btn">Login now</button>
-                    <p>Do not have an account ?
-                        <a href="register.php"> Register now</a> </p>
                 </form>
+                <a href="../login.php">
+                    <button class="btn">User now</button>
+                </a>
+                <p>Do not have an account ?
+                    <a href="register.php"> Register now</a> </p>
 
             </div>
         </section>

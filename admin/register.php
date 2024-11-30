@@ -56,23 +56,23 @@ if(isset($_POST['register'])){
         <section>
             <div class = "form_container" id = "admin_login">
                 <form action="" method = "post" enctype="multipart/form-data">
-                    <h3>Register now</h3>
+                    <h3>Register Admin now</h3>
                     <div class = "input_flied">
-                        <label > User name <sup>*</sup></label>
+                        <label > User name </label>
                         <input type="text" name ="name" maxlength="20" required placeholder="Enter your username" oninput="this.value.replace(/\s/g,'')">
                     </div>
 
                     <div class = "input_flied">
-                        <label > User email <sup>*</sup></label>
+                        <label > User email </label>
                         <input type="email" name ="email" maxlength="20" required placeholder="Enter your email" oninput="this.value.replace(/\s/g,'')">
                     </div>
 
                     <div class = "input_flied">
-                        <label > Password <sup>*</sup></label>
+                        <label > Password</label>
                         <input type="password" name ="password" maxlength="20" required placeholder="Enter your password" oninput="this.value.replace(/\s/g,'')">
                     </div>
 
-                    <div class = "input_flied">
+                    <div class = "input_flied"> 
                         <label > Confirm password <sup>*</sup></label>
                         <input type="password" name ="confirmpass" maxlength="20" required
                         placeholder="Confirm password" oninput="this.value.replace(/\s/g,'')">

@@ -11,9 +11,9 @@ if(isset($_SESSION['user_id'])) {
 if(isset($_POST['submit'])){
    
     $email = $_POST['email'];
-    $email = filter_var($email, FILTER_SANITIZE_STRING);
+    $email = filter_var($email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $pass = $_POST['pass'];
-    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+    $pass = filter_var($pass, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
  
     $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
     $select_user->execute([$email,$pass]);
@@ -47,8 +47,8 @@ if(isset($_POST['submit'])){
         <section class="form-container">
             <div class="title">
         <img src="img/download.png">
-        <h1>Login Now</h1>
-        <p class="text"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus porro voluptate aspernatur exercitationem. Aliquam, reiciendis accusamus! </p>
+        <h1>User Login</h1>
+        <p class="text"> Hi there, let's buy green tea !</p>
     </div>
     <form action="" method="post">
     
@@ -61,11 +61,18 @@ if(isset($_POST['submit'])){
             <input type="password" name="pass" required placeholder="Enter your password" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
         </div>
 
-        <button type ="submit" name="submit" class="btn">Login now</button>
+        <button type="submit" name="submit" class="btn">Login now</button>
+
+          
         <p>Do not have an account? <a href="register.php">Register now</a></p>
     </form>
-
+        <a href="admin/login.php">
+            <button class="btn">Admin now</button>
+        </a>  
         </section>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <?php include 'components/alert.php'; ?>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
