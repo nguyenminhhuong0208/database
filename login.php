@@ -46,29 +46,29 @@ if(isset($_POST['submit'])){
     <div class="main-container">
         <section class="form-container">
             <div class="title">
-        <img src="img/download.png">
-        <h1>User Login</h1>
-        <p class="text"> Hi there, let's buy green tea !</p>
-    </div>
-    <form action="" method="post">
-    
-        <div class="input-field">
-            <p >Your email <sup>*</sup></p>
-            <input type="email" name="email" required placeholder="Enter your email" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-        </div>
-        <div class="input-field">
-            <p>Your password <sup>*</sup></p>
-            <input type="password" name="pass" required placeholder="Enter your password" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-        </div>
+                <img src="img/download.png">
+                <h1>User Login</h1>
+                <p class="text"> Hi there, let's buy green tea !</p>
+            </div>
+            <form action="" method="post">
+            
+                <div class="input-field">
+                    <p >Your email <sup>*</sup></p>
+                    <input type="email" name="email" required placeholder="Enter your email" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
+                </div>
+                <div class="input-field">
+                    <p>Your password <sup>*</sup></p>
+                    <input type="password" name="pass" required placeholder="Enter your password" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
+                </div>
 
-        <button type="submit" name="submit" class="btn">Login now</button>
+                <button type="submit" name="submit" class="btn">Login now</button>
 
-          
-        <p>Do not have an account? <a href="register.php">Register now</a></p>
-    </form>
-        <a href="admin/login.php">
-            <button class="btn">Admin now</button>
-        </a>  
+                
+                <p>Do not have an account? <a href="register.php">Register now</a></p>
+            </form>
+            <a href="admin/login.php">
+                <button class="btn">Admin now</button>
+            </a>  
         </section>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
