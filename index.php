@@ -12,19 +12,49 @@
 <body>
     <div class="main-container">
         <section class="form-container">
-            <div class="title">
-                <img src="img/download.png">
-                <h1>Green tea Page</h1>
-                <p class="text">Hello you, welcome to our green tea page!</p>
-            </div>
-            <div class="box-container">
-                <a href="login.php">
-                    <button class="btn">Login as a customer</button>
-                </a>  
+        <div class="title">
+                    <img src="img/download.png">
+                    <h1>Green tea Page</h1>
+                    <p class="text">Hello you, welcome to our green tea page!</p>
+                </div>
+            <div class = "button-container">
+                    <a href="login.php">
+                        <button class="btn">Login as a customer</button>
+                    </a>  
 
-                <a href="admin/login.php">
-                    <button class="btn">Login as an admin</button>
-                </a> 
+                    <a href="admin/login.php">
+                        <button class="btn">Login as an admin</button>
+                    </a> 
+            </div>
+            <h4>Contact us</h4>
+            <div class="box-container">
+                <div class="box"> 
+                    <i class="bx bxs-phone-call"></i>
+                    <div>
+                    <h4>Facebook</h4>
+                        <p><?php
+                            echo '<a href="https://www.facebook.com/profile.php?id=100029231884618" target="_blank">Minh Huong</a>';
+                        ?></p>
+                    </div>
+                </div>
+                <div class="box"> 
+                    <i class="bx bxs-phone-call"></i>
+                    <div>
+                    <h4>Facebook</h4>
+                        <p><?php
+                            echo '<a href="https://www.facebook.com/profile.php?id=100051391368220" target="_blank">Thanh Tuyen</a>';
+                        ?></p>
+                    </div>
+                </div>
+                <div class="box"> 
+                    <i class="bx bxs-phone-call"></i>
+                    <div>
+                        <h4>Facebook</h4>
+                        <p><?php
+                            echo '<a href="https://www.facebook.com/hoaithuon.me" target="_blank">Hoai Thuong</a>';
+                        ?></p>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
