@@ -93,25 +93,25 @@
                     if($select_products->rowCount() > 0) {
                         while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
                 ?>
-                <form action="" method="post" class="box">
-                    <img src="image/<?=$fetch_products['image']; ?>" class="img">
-                    <div class="button">
-                        <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
-                        <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
-                        <a href="view_page.php?pid=<?php echo $fetch_products['id'];?>" class="bx bxs-show"></a>
-                    </div>
-                    <h3 class="name"><?=$fetch_products['name'];?></h3>
-                    <input type="hidden" name="product_id" value="<?=$fetch_products['id'];?>">
-                    <div class="flex">
-                        <p class="price">Price $<?=$fetch_products['price'];?>/-</p>
-                        <input type="number" name="qty" required min="1" max="99" maxlength="2" class="qty" value="1">
-                    </div>
-                    <a href="checkout.php?get_id=<?=$fetch_products['id'];?>" class="btn">Buy now</a>
-                </form>
+                    <form action="" method="post" class="box">
+                        <img src="image/<?=$fetch_products['image']; ?>" class="img">
+                        <div class="button">
+                            <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
+                            <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
+                            <a href="view_page.php?pid=<?php echo $fetch_products['id'];?>" class="bx bxs-show"></a>
+                        </div>
+                        <h3 class="name"><?=$fetch_products['name'];?></h3>
+                        <input type="hidden" name="product_id" value="<?=$fetch_products['id'];?>">
+                        <div class="flex">
+                            <p class="price">Price $<?=$fetch_products['price'];?>/-</p>
+                            <input type="number" name="qty" required min="1" max="99" maxlength="2" class="qty" value="1">
+                        </div>
+                        <a href="checkout.php?get_id=<?=$fetch_products['id'];?>" class="btn">Buy now</a>
+                    </form>
                 <?php
                         }
                     } else {
-                        echo '<p class="empty">No products added yet!</p>';
+                        echo '<p></p><p class="empty">No products added yet!</p> </div>';
                     }
                 ?>
             </div>

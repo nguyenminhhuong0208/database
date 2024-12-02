@@ -100,8 +100,8 @@ if(isset($_POST['logout'])) {
                         <button id="game" class="btn" onclick="playPickleBallMusic()">Play PickleBall</button>
                         <button id="outGameButton" class="btn" style="display:none;" onclick="pausePickleBallMusic()">Pause</button>
 
-                        <div id="scoreDisplay">Score: 0</div>
-                        <div id="maxScoreDisplay">Max Score: 0</div>
+                        <div id="scoreDisplay" class="score" >Score: 0</div>
+                        <div id="maxScoreDisplay" class="score">Max Score: 0</div>
 
                     </div>
                     <div id = "PongGame" >

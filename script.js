@@ -20,4 +20,4 @@ userBtn.addEventListener("click", function () {
   userBox.classList.toggle("active");
 });
 
-
+/*-------------- home page slider --------------*/
