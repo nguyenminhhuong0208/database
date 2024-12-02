@@ -109,9 +109,10 @@
                 <?php
                             $grand_total += $fetch_wishlist['price'];
                             }
+                            
                         }
                     }else{
-                        echo '<p class="empty">no products added yet!</p>';
+                        echo '<p></p><p class="empty">No products added yet!</p>';
                     }
                 ?>
             </div>
