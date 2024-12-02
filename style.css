@@ -777,3 +777,56 @@ canvas {
   text-transform: capitalize;
   color: #555;
 }
+/*----------contact section-----*/
+.main-container {
+  background: #fff;
+  width: 60vw;
+  min-width: 80vh;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 1rem 0;
+}
+.form-container {
+  width: 50vw;
+  margin: 0 auto;
+}
+.form-container input, textarea {
+  background-color: transparent;
+  width: 85%;
+}
+textarea{
+  height: 200px;
+}
+.main-container p {
+  color: var(--green);
+}
+.form-container sup {
+  color: red;
+  font-size: 1.2rem;
+}
+.main-container input[type=submit] {
+  color: #000!important;
+  cursor: pointer;
+}
+.form-container form {
+  margin: 1rem auto;
+  background-color: rgb(255, 255, 255 / 80%);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  position: relative;
+  border-radius: 5px;
+}
+.form-container form p {
+  text-transform: uppercase;
+}
+.form-container form input{
+  width: 85%;
+}
+.forn-container form button{
+  width: 85%;
+  border-radius: 10px;
+  outline: none;
+}
