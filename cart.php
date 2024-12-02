@@ -113,7 +113,7 @@
                             }
                         }
                     }else{
-                        echo '<p class="empty">no products added yet!</p>';
+                        echo '<p></p><p class="empty">no products added yet!</p>';
                     }
                 ?>
             </div>

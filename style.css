@@ -279,12 +279,18 @@ header.scrolled {
 }
 
 /*------view product section--------*/
+.products {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
 .products .box-container {
+  margin-left: 20px;
+  margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  justify-content: center;
-  padding: 2rem;
 }
 .products .box-container .box {
   position: relative;
@@ -570,14 +576,16 @@ header.scrolled {
   margin: 1rem;
 }
 /* -----------view orders----------- */
-.orders .box-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  padding: 2rem;
+.orders {
+  padding-top: 30px;
 }
-
+.orders .box-container {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+}
 .orders .box-container .box {
   display: inline-block; /* Đảm bảo ôm sát nội dung */
   border-radius: 0.5rem;
@@ -742,6 +750,7 @@ header.scrolled {
   background: var(--green);
   color: #fff;
 }
+/*-----------game------------*/
 canvas {
   border: 2px solid #fff;
   display: none;
@@ -751,6 +760,9 @@ canvas {
   display: grid;
   justify-content: center;
   align-items: center;
+}
+.score {
+  padding-top: 10px;
 }
 
 /*-----------dashboard------------*/
