@@ -1,13 +1,6 @@
 <?php
 include 'components/connection.php';
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    $_SESSION['user_id'] = '';
-}
-
-if (isset($_SESSION['user_id'])) {
-    $_SESSION['user_id'] = '';
-}
 
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
@@ -26,13 +19,8 @@ if (isset($_POST['submit-btn'])) {
     $insert_message = $conn->prepare("INSERT INTO `message` (user_id, name, email, message) VALUES (?, ?, ?, ?)");
     $insert_message->execute([$user_id, $name, $email, $message]);
     $success_msg[] = 'Message sent successfully!';
-    // echo 'Message sent successfully';
 
-    //e xoa doan nay nua de no hien thong bao
-    //vang a
-    // Redirect with success parameter
-    //header("Location: contact.php?success=1");
-    //exit;
+
 }
 ?>
 
