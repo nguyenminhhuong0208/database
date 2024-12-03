@@ -273,6 +273,53 @@ header.scrolled {
     width: 100%;
   }
 }
+/*------------view products---------*/
+.view_page {
+  padding: 5% 8%;
+  background-image: url("img/bg.jpg");
+}
+.view_page form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+  background: #fff;
+  margin-left: 1rem;
+  padding: 1.5rem;
+}
+.view_page form img {
+  padding: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+.view_page form .name {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--green);
+}
+.view_page form .price {
+  font-size: 24px;
+  text-transform: capitalize;
+  color: var(--green);
+}
+.view_page form .detail {
+  font-size: 16px;
+  color: gray;
+  line-height: 2;
+  margin-bottom: 0.5rem;
+}
+.view_page .btn {
+  background: var(--light-green);
+  cursor: pointer;
+}
+.cart-total .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-total .button .btn {
+  margin: 1rem;
+}
+/* -----------view orders----------- */
 
 /*------view product section--------*/
 
@@ -940,11 +987,11 @@ canvas {
   width: 50vw;
   margin: 0 auto;
 }
-.form-container input, textarea {
+.form-container input,
+textarea {
   background-color: transparent;
-  width: 85%;
 }
-textarea{
+textarea {
   height: 200px;
 }
 .main-container p {
@@ -954,8 +1001,8 @@ textarea{
   color: red;
   font-size: 1.2rem;
 }
-.main-container input[type=submit] {
-  color: #000!important;
+.main-container input[type="submit"] {
+  color: #000 !important;
   cursor: pointer;
 }
 .form-container form {
@@ -969,10 +1016,10 @@ textarea{
 .form-container form p {
   text-transform: uppercase;
 }
-.form-container form input{
+.form-container form input {
   width: 85%;
 }
-.forn-container form button{
+.forn-container form button {
   width: 85%;
   border-radius: 10px;
   outline: none;
