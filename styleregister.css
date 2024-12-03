@@ -426,3 +426,12 @@ section,
   border-radius: 20px;
   margin: 30px 10px;
 }
+
+/*----------check password ---------*/
+.pass_mess {
+  margin-top: 8px;
+  font-size: 14px;
+  margin-left: 10px; /* Khoảng cách giữa trường mật khẩu và thông báo */
+  color: red !important; /* Màu đỏ cho thông báo lỗi */
+  display: inline-block;
+}

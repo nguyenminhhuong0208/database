@@ -1,5 +1,6 @@
 <?php
 include 'components/connection.php';
+include 'checkinfor.php';
 session_start();
 
 if(isset($_SESSION['user_id'])) {
@@ -32,7 +33,12 @@ if(isset($_POST['submit'])){
         if($pass != $cpass){
             $warning_msg[] = 'Comfirm your password';
             echo 'Comfirm your password';
-        }else{
+        } else {
+            $result = checkPassword($pass);
+            if(empty($result)){
+
+            
+        
             $insert_user = $conn->prepare("INSERT INTO `users`(id,name,email,password) VALUES(?,?,?,?)");
             $insert_user->execute([$id,$name,$email,$pass]);
             $success_msg[] = 'Register successfully!';
@@ -46,9 +52,9 @@ if(isset($_POST['submit'])){
 
             }
         }
+        }
     }
-
-}
+    }
 ?>
 
 
@@ -82,8 +88,23 @@ if(isset($_POST['submit'])){
         </div>
         <div class="input-field">
             <p>Your password <sup>*</sup></p>
+           
             <input type="password" name="pass" required placeholder="Enter your password" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
+            <span id="passwordMessage" class="message"></span>
+            
         </div>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $pass = $_POST['pass'];
+
+            $result = checkPassword($pass);
+            
+            if (!empty($result)) {
+                //echo "<span class='pass_message' style='margin-left: 10px; color: red ; display: inline-block; '>$result</span>";
+echo "<span class = 'pass_mess' >$result</span>";
+            }
+        }
+        ?>
         <div class="input-field">
             <p>Confirm password <sup>*</sup></p>
             <input type="password" name="cpass" required placeholder="Enter your password" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">

@@ -1,9 +1,6 @@
 <?php
 include 'components/connection.php';
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    $_SESSION['user_id'] = '';
-}
 
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
@@ -23,7 +20,6 @@ if (isset($_POST['submit-btn'])) {
     $insert_message->execute([$user_id, $name, $email, $message]);
     $success_msg[] = 'Message sent successfully!';
 
-    echo 'Message sent successfully';
 
 }
 ?>

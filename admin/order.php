@@ -1,5 +1,6 @@
 <?php
         include '../components/connection.php';
+        include '../checkinfor.php';
 
         session_start();
 
@@ -67,12 +68,25 @@
         <section class="order-container">
                 <h1 class="heading">total order placed</h1>
                 <div class="box-container">
+                
+            
                     <?php
-                        $select_orders = $conn->prepare("SELECT * FROM `orders`");
+                    $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    if($status === 'canceled'){
+                        $orders = getOrdersByStatus($conn, $status);
+                    }else if($status === 'in progress'){
+                        $orders = getOrdersByStatus($conn, $status);
+                    }else{
+                        $orders = getOrdersByStatus($conn, '');
+                    }
+                    if(count($orders) > 0){
+                        foreach($orders as $fetch_orders){
+                        /*$select_orders = $conn->prepare("SELECT * FROM `orders`");
                         $select_orders->execute();
 
                         if($select_orders->rowCount()>0) {
                             while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)) {
+                            */
                     ?>
                     <div class = "box">
                         <div class = "status" style ="color:<?php if($fetch_orders['status'] ==
@@ -80,6 +94,7 @@
                         </div> 
 
                         <div class = "detail">
+        
                                 <p>user name : <span><?= $fetch_orders['name']; ?></span></p>
                                 <p>user id : <span><?= $fetch_orders['id']; ?></span></p>
                                 <p>placed on : <span><?= $fetch_orders['date']; ?></span></p>
