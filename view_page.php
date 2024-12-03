@@ -95,7 +95,7 @@
                         while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
             ?>
             <form method="post">
-                <img src="img/<?php echo $fetch_products['image']; ?>">
+                <img src="image/<?php echo $fetch_products['image']; ?>">
                 <div class="detail">
                     <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
                     <div class="name"><?php echo $fetch_products['name']; ?></div>
