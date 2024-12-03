@@ -90,7 +90,6 @@ if(isset($_POST['submit'])){
             <p>Your password <sup>*</sup></p>
            
             <input type="password" name="pass" required placeholder="Enter your password" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-            <span id="passwordMessage" class="message"></span>
             
         </div>
         <?php
