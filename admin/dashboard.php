@@ -35,7 +35,6 @@
                         <div class="box">   
                                 <h3>welcome!</h3>
                                 <p><?= $fetch_profile['name']; ?></p>
-                                <a href="" class="btn">profile</a>
                         </div>
                         <div class="box">
                                 <?php
@@ -85,7 +84,7 @@
                                 ?>
                                 <h3><?= $num_of_admin; ?></h3>
                                 <p>registered admin</p>
-                                <a href="user_account.php" class="btn">view admin</a> <!-- sửa từ acconts thành account -->
+                                <a href="admin_account.php" class="btn">view admin</a> <!-- sửa từ acconts thành account -->
                         </div>
                         <div class="box">
                                 <?php
@@ -105,7 +104,7 @@
                                 ?>
                                 <h3><?= $num_of_orders; ?></h3>
                                 <p>total orders placed</p>
-                                <a href="order.php" class="btn">view orders</a>
+                                <a href="order.php?status=" class="btn">view orders</a>
                         </div>
                         <div class="box">
                                 <?php
@@ -115,7 +114,7 @@
                                 ?>
                                 <h3><?= $num_of_confirm_orders; ?></h3>
                                 <p>total confirm orders</p>
-                                <a href="order.php" class="btn">view confirm orders</a>
+                                <a href="order.php?status=in progress" class="btn">view confirm orders</a>
                         </div>
                         <div class="box">
                                 <?php
@@ -125,7 +124,7 @@
                                 ?>
                                 <h3><?= $num_of_canceled_orders; ?></h3>
                                 <p>total canceled orders</p>
-                                <a href="order.php" class="btn">view canceled orders</a>
+                                <a href="order.php?status=canceled" class="btn">view canceled orders</a>
                         </div>
                 </div>
         </section>

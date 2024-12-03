@@ -95,7 +95,7 @@
                 ?>
                 <form method="post" action="" class="box">
                     <input type="hidden" name="cart_id" value="<?=$fetch_cart['id']; ?>">
-                    <img src="img/<?= $fetch_products['image']; ?>" class ="img" >
+                    <img src="image/<?= $fetch_products['image']; ?>" class ="img" >
                     <h3 class="name"><?=$fetch_products['name']; ?></h3>
                     <div class = "flex">
                         <p class = "price">price $<?=$fetch_products['price']; ?>/-</p>

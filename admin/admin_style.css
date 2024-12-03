@@ -21,7 +21,6 @@ body {
 }
 .main_contain {
   width: 85vw;
-  height: 800px;
   background: #fff;
   box-shadow: 0 2px 6px 0 rgb(0 0 0/10%);
   margin: 1rem auto;
@@ -264,7 +263,7 @@ header.scrolled a:hover {
   font-size: 1.5rem;
   text-transform: capitalize;
   padding-bottom: 0.7rem;
-  color: var(--light-green);
+  color: var(--green);
 }
 .profile-detail img {
   width: 120px;
