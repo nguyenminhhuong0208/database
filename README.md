@@ -10,9 +10,9 @@
 
 ## Tác giả
 
-- Nguyễn Thị Thanh Tuyền 23021717
-- Nguyễn Minh Hường 22022542
-- Nguyễn Đoàn Hoài Thương 23021733
+- Nguyễn Thị Thanh Tuyền - 23021717
+- Nguyễn Minh Hường - 22022542
+- Nguyễn Đoàn Hoài Thương - 23021733
 
 ## Giới thiệu
 
@@ -49,3 +49,5 @@ Admin :
   ![customer](https://drive.google.com/uc?id=1D0JQgI7nGbMCVkTLKescljEdrq3nnh_H)
 - Admin
   ![admin](https://drive.google.com/uc?id=1aVMBvFvb4Q0UlfPsyiBQuAJs7PE3-GB9)
+
+  Nguồn tham khảo: Youtube
