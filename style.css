@@ -1024,3 +1024,100 @@ textarea {
   border-radius: 10px;
   outline: none;
 }
+/*----------footer section------------*/
+.top-footer{
+    width: 100%;
+    background: var(--green);padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    aLign-items: center;
+    color: #fff;
+}
+.top-footer h2 i{
+  margin-right: .5rem;
+}
+.top-footer input{
+  width: 40vw;
+}
+footer{
+  background-image: url('img/0.webp');
+  width: 100%;
+  min-height: 73vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+footer .overlay{
+  position: absolute;
+  top: 0;
+  Left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.5;
+}
+.footer-content i{
+  position: absolute;
+  top: 10%;
+}
+.footer-content .img-box{
+  text-align: center;
+}
+footer .inner-footer{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax (18rem, 1fr));
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  color: #fff;
+}
+footer .inner-footer .card{
+  margin: .5rem;
+}
+footer .inner-footer .card li{
+  cursor: pointer;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+footer .inner-footer .card li:nth-child(1),
+footer .inner-footer .card h3{
+  text-transform: uppercase;
+}
+footer .inner-footer .card p{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 26px;  
+}
+footer .inner-footer .card .social-link{
+  margin-top: 1rem;
+}
+footer .inner-footer .card .social-links i{
+  width: 50px;
+  height: 50px;
+  line-height: 30px;
+  border-radius: 50%;
+  background: #000;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  color: var(--green);
+  cursor: pointer;
+  padding: .6rem;
+  font-size: 1.3rem;
+}
+footer .inner-footer .card .social-links i:hover{
+  background: var(--green) ;
+  color: #fff;
+  }
+footer .bottom-footer{
+  text-transform: capitalize;
+  text-align: center;
+  padding: 3rem 0;
+  color: #fff;
+  padding-bottom: 1rem;
+}
