@@ -108,8 +108,9 @@ if(isset($_POST['logout'])) {
                         <script src="game.js"></script>
                     </div>
                 </div>
-        </section>
+            </section>
         </div>
+        <?php include 'components/footer.php'; ?>
     </main>
 </body>
 </html>
