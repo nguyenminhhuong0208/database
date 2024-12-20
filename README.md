@@ -50,7 +50,7 @@ Admin :
 - Có các voucher khuyến mại
 
 ## Database
-![database](https://drive.google.com/uc?id=1j4IhuaWgknol3HKh0smUqAvQK4ZkVY2c)
+![database](https://drive.google.com/uc?id=1cpJtQZON3P_qQwUI_GgbnA9dDy6LkZm2)
 
 ## Cách cài đặt
 
