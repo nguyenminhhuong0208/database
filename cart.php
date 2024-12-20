@@ -60,16 +60,19 @@
     }
 ?>
 <style type="text/css">
-    <?php include 'style.css'; ?>
+<?php include 'style.css';
+?>
 </style>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
     <title>Green Coffee - cart page</title>
 </head>
+
 <body>
     <?php include 'components/header.php'; ?>
     <div class="main">
@@ -82,7 +85,7 @@
         <section class="products">
             <h1 class="title">products added in cart</h1>
             <div class="box-container">
-            <?php
+                <?php
                     $grand_total = 0;
                     $select_cart = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
                     $select_cart->execute([$user_id]);
@@ -95,17 +98,19 @@
                 ?>
                 <form method="post" action="" class="box">
                     <input type="hidden" name="cart_id" value="<?=$fetch_cart['id']; ?>">
-                    <img src="image/<?= $fetch_products['image']; ?>" class ="img" >
+                    <img src="image/<?= $fetch_products['image']; ?>" class="img">
                     <h3 class="name"><?=$fetch_products['name']; ?></h3>
-                    <div class = "flex">
-                        <p class = "price">price $<?=$fetch_products['price']; ?>/-</p>
-                        <input type = "number" name = "qty" required min = "1" value ="<?=$fetch_cart['qty']; ?>" max="99"
-                        maxlength="2" class = "qty">
-                        <button type = "submit" name = "update_cart" class ="bx bxs-edit fa-edit"></button>
+                    <div class="flex">
+                        <p class="price">price $<?=$fetch_products['price']; ?>/-</p>
+                        <input type="number" name="qty" required min="1" value="<?=$fetch_cart['qty']; ?>" max="99"
+                            maxlength="2" class="qty">
+                        <button type="submit" name="update_cart" class="bx bxs-edit fa-edit"></button>
                     </div>
-                    <p class = "sub-total">sub total : <span>$<?=$sub_total = ($fetch_cart['qty']* $fetch_cart['price']) ?></span></p>
-                    <button type = "submit" name = "delete_item" class ="btn" onclick = "return confirm('delete this item')">delete</button>
-                    </form>
+                    <p class="sub-total">sub total :
+                        <span>$<?=$sub_total = ($fetch_cart['qty']* $fetch_cart['price']) ?></span></p>
+                    <button type="submit" name="delete_item" class="btn"
+                        onclick="return confirm('delete this item')">delete</button>
+                </form>
                 <?php
                             $grand_total += $sub_total;
                             }else {
@@ -119,17 +124,18 @@
             </div>
             <?php
                 if($grand_total!=0) {
-            ?>        
-            <div class = "cart-total">
+            ?>
+            <div class="cart-total">
                 <p>total amount payable : <span>$<?=$grand_total; ?>/-</span></p>
-                <div class = "button">
-                    <form method = "post">
-                        <button type = "submit" name = "empty_cart" class = "btn" onclick="return confirm('are you sure to empty your cart')">empty cart</button>
+                <div class="button">
+                    <form method="post">
+                        <button type="submit" name="empty_cart" class="btn"
+                            onclick="return confirm('are you sure to empty your cart')">empty cart</button>
                     </form>
-                    <a href = "checkout.php" class = "btn">proceed to checkout</a>
+                    <a href="checkout.php" class="btn">proceed to checkout</a>
                 </div>
-            <?php    }?>
-            
+                <?php    }?>
+
         </section>
     </div>
     <!-- //<?php include 'components/footer.php'; ?> -->
@@ -137,4 +143,5 @@
     <script type="text/javascript" src="script.js"></script>
     <?php include 'components/alert.php'; ?>
 </body>
+
 </html>

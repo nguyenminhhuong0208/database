@@ -366,7 +366,7 @@ header.scrolled {
 }
 .products .box-container .box .button {
   position: absolute;
-  bottom: 6rem;
+  bottom: 10rem;
   right: 20px;
   display: flex;
   padding: 5px;
@@ -1479,4 +1479,216 @@ tbody tr:nth-child(even) {
   font-size: 25px;
   margin-left: 10rem;
   color: var(--green);
+}
+/*--------voucher----------*/
+.voucher {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.voucher .row .button-container {
+  padding: 1rem;
+  width: 100%;
+}
+.voucher .row {
+  display: flex;
+  flex-direction: column;
+  flex-flow: column-reverse;
+  margin-bottom: 2rem;
+}
+.voucher .row form,
+.voucher .summary {
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  width: 1000px;
+  padding: 1rem;
+  margin: 1rem auto;
+}
+.voucher h3 {
+  font-size: 2rem;
+  color: #000;
+  padding-bottom: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--green);
+}
+.voucher .row form .input {
+  width: 100%;
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+  color: #000;
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+.voucher .row form .flex {
+  display: flex;
+  column-gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.voucher .row form .flex .box {
+  flex: 1 1 30rem;
+}
+.voucher .row form p {
+  padding-top: 1rem;
+  font-size: 1.3rem;
+  color: #555;
+  text-transform: capitalize;
+}
+.voucher .row form p span {
+  color: red;
+}
+.voucher .row form .btn {
+  width: 100%;
+}
+.choiceBox {
+  margin-bottom: 4rem;
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+}
+select {
+  text-align: center;
+  background: #fff;
+  border: none;
+  outline: none;
+  padding: 0.6rem;
+  box-shadow: var(--box-shadow);
+  margin: 0.5rem 0;
+  border: 1px solid var(--green);
+  width: 100%;
+  min-width: 700px;
+  height: max-content;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+/*--------flex-box--------*/
+.block-container {
+  display: flex;
+  flex-direction: column; /* Đặt các phần tử thành hàng dọc */
+  align-items: center; /* Căn giữa theo chiều ngang (tùy chọn) */
+  justify-content: center; /* Căn giữa theo chiều dọc (tùy chọn) */
+  height: 800px;
+}
+
+.block-container label {
+  color: white;
+  font-size: 50px;
+}
+.block {
+  display: flex;
+  flex-direction: column; /* Đặt các phần tử thành hàng dọc */
+  align-items: center; /* Căn giữa theo chiều ngang (tùy chọn) */
+  justify-content: center; /* Căn giữa theo chiều dọc (tùy chọn) */
+}
+.flex-box {
+  display: flex; /* Sử dụng Flexbox */
+  justify-content: center; /* Căn giữa theo chiều ngang (tùy chọn) */
+}
+
+.block label {
+  color: white;
+  font-size: 30px;
+}
+.flex-box img {
+  padding: 0.5rem;
+  box-shadow: var(--box-shadow);
+  width: 75%;
+}
+/*---------voucher------------*/
+.zigzag-border {
+  margin-top: 20px;
+  position: relative;
+  background: #017c3e;
+  padding: 20px;
+  color: #000;
+  text-align: center;
+  clip-path: polygon(
+    0% 5%,
+    10% 0%,
+    20% 5%,
+    30% 0%,
+    40% 5%,
+    50% 0%,
+    60% 5%,
+    70% 0%,
+    80% 5%,
+    90% 0%,
+    100% 5%,
+    100% 95%,
+    90% 100%,
+    80% 95%,
+    70% 100%,
+    60% 95%,
+    50% 100%,
+    40% 95%,
+    30% 100%,
+    20% 95%,
+    10% 100%,
+    0% 95%
+  );
+  display: flex;
+  flex-direction: column; /* Đặt các phần tử thành hàng dọc */
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  padding: 4rem;
+}
+.zigzag-border .wave-border {
+  position: absolute;
+  top: 10px; /* Đặt viền sóng cách mép trên một chút */
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  clip-path: polygon(
+    0% 5%,
+    10% 0%,
+    20% 5%,
+    30% 0%,
+    40% 5%,
+    50% 0%,
+    60% 5%,
+    70% 0%,
+    80% 5%,
+    90% 0%,
+    100% 5%,
+    100% 95%,
+    90% 100%,
+    80% 95%,
+    70% 100%,
+    60% 95%,
+    50% 100%,
+    40% 95%,
+    30% 100%,
+    20% 95%,
+    10% 100%,
+    0% 95%
+  );
+
+  background: #b8ecb6;
+  z-index: 1;
+}
+
+.zigzag-border label {
+  font-weight: bold;
+  margin-top: 10px;
+  z-index: 2; /* Đảm bảo label nằm trên viền */
+  position: relative;
+  color: white;
+}
+
+.zigzag-border .voucher-description {
+  font-size: 40px;
+  color: #0a2902;
+}
+
+.zigzag-border .voucher-discount {
+  font-size: 24px;
+  color: #0a2902;
+}
+
+.zigzag-border .voucher-quantity {
+  font-size: 16px;
+  color: #0a2902;
 }
