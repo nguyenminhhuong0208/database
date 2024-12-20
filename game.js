@@ -19,8 +19,8 @@ ballImage.src = "img/tom1.jpg";
 function resetBall() {
   ballX = canvas.width / 2;
   ballY = canvas.height / 2;
-  ballSpeedX = 5;
-  ballSpeedY = 5;
+  ballSpeedX = 20;
+  ballSpeedY = 20;
 }
 
 function drawEverything() {

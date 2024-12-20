@@ -1,4 +1,13 @@
 <?php
+$db_name = 'mysql:host=localhost;dbname=BTLcsdl';
+$user_name = 'root';
+$user_password = '';
+
+$conn = new PDO($db_name, $user_name, $user_password);
+
+if (!$conn) {
+    echo "Can not connect to the database";
+}
 
 function getUserID(string $password, string $email)
 {
@@ -138,7 +147,33 @@ function checkProductStatus($productId)
     }
 }
 
+if (isset($_GET['action']) && $_GET['action'] === 'getProducts') {
+    function getProducts()
+    {
+        $db_name = 'mysql:host=localhost;dbname=BTLcsdl;charset=utf8';
+        $user_name = 'root';
+        $user_password = '';
 
+        try {
+            $conn = new PDO($db_name, $user_name, $user_password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // Truy vấn lấy sản phẩm
+            $query = $conn->prepare("SELECT name FROM `products`");
+            $query->execute();
+
+            // Trả về danh sách sản phẩm
+            return $query->fetchAll(PDO::FETCH_COLUMN);
+        } catch (PDOException $e) {
+            // Trả về mảng trống nếu lỗi
+            return [];
+        }
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode(getProducts());
+    exit;
+}
 function getOrdersByStatus($conn, $status)
 {
     if ($status === '') {
