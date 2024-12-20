@@ -78,8 +78,8 @@ ALTER TABLE products ENGINE = InnoDB;
 ALTER TABLE cart MODIFY COLUMN user_id VARCHAR(20);
 ALTER TABLE cart MODIFY COLUMN product_id VARCHAR(20);
 
-CREATE INDEX idx_users_id ON users`(id`);
-CREATE INDEX idx_products_id ON products`(id`);
+CREATE INDEX idx_users_id ON users(`id`);
+CREATE INDEX idx_products_id ON products(`id`);
 
 
 ALTER TABLE cart
