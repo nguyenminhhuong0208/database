@@ -138,16 +138,16 @@ if (isset($_POST['save-infor'])) {
                 <li onclick="toggleDetails('detail2')">Kinh nghiệm làm việc</li>
                 <li onclick="toggleDetails('detail3')">Kỹ năng</li> -->
                     <div class="detail">
-                        <li onclick="showcontent('content1')">Thong tin ca nhan</li>
+                        <li onclick="showcontent('content1')">Your information</li>
                     </div>
                     <div class="detail">
-                        <li onclick="showcontent('content2')">Lich su mua hang</li>
+                        <li onclick="showcontent('content2')">Buy History</li>
                     </div>
                     <div class="detail">
-                        <li onclick="showcontent('content3')">Don hang da huy</li>
+                        <li onclick="showcontent('content3')">Cancelled Orders</li>
                     </div>
                     <div class="detail">
-                        <li onclick="showcontent('content4')">Message da gui</li>
+                        <li onclick="showcontent('content4')">Sent Message</li>
                     </div>
                 </ul>
             </div>
@@ -168,30 +168,30 @@ if (isset($_POST['save-infor'])) {
 
                             <!-- anh cua user -->
                             <!-- <img src="../image/0.jpg" class="logo-img"> -->
-                            <!-- <img src="../<?= $user['profile'] ?? 'image/0.jpg'; ?>" id="user-image" onclick="triggerFileInput()" class="logo-img"> -->
 
                             <!-- Hình ảnh người dùng -->
 
                             <button type="button" onclick="showBox(event)">
                                 <img src="image/<?= $user['profile'] ?? 'image/0.jpg'; ?>" id="user-image" class="logo-img">
                             </button>
-                            <input type="file" name="profile_image" id="image-upload" accept="image" style="display:none;" onchange=" previewImage(event)">
+                            <input type="file" name="profile_image" id="image-upload" accept="image" style="display:none;">
 
                             <!-- <div id="image-viewer" class="image-viewer" style="display:none;">
-                                <img id="image-preview" src="../<?= $user['profile'] ?? 'image/0.jpg'; ?>" alt="Xem ảnh" style="width:100%; max-width:600px;">
                                 <button onclick="closeViewer()">Đóng</button>
                             </div> -->
                             <!-- Modal để hiển thị ảnh -->
-                            <div id="image-viewer" style="display:none; position: fixed; top: 20%; left: 20%; z-index: 9999; background-color: rgba(0, 0, 0, 0.8); padding: 20px; text-align: center;">
-                                <img id="image-preview" src="" alt="Image" style="max-width: 80%; max-height: 80%; margin-bottom: 10px;">
-                                <button onclick="closeImageViewer(event)" style="color: white; font-size: 20px; background-color: red; border: none; padding: 10px 20px; cursor: pointer;">Đóng</button>
+                            <div id="image-viewer" style="display:none; width:450px; height:450px; position: fixed; top: 20%; left: 20%; z-index: 9999; background-color: rgba(0, 0, 0, 0.8); padding: 20px; text-align: center;">
+                                <img id="image-preview" src="" alt="Image" style="width: 400px; height: 400px; border:none; border-radius: 0px">
+                                <button onclick="closeImageViewer(event)" style="color: white; font-size: 30px; background-color: transparent; border: none; padding: 10px 10px; cursor: pointer; position: relative;">
+                                    <span style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); font-size: 30px;">&times;</span>
+                                </button>
                             </div>
 
 
                             <div id="popup-box" class="popup-box" style="display:none;">
                                 <div id="image-modal" class="modal">
-                                    <button onclick="viewImage(event)">Xem ảnh</button>
-                                    <button onclick="changeImage(event)">Đổi ảnh</button>
+                                    <button onclick="viewImage(event)">View Image</button>
+                                    <button onclick="changeImage(event)">Change Image</button>
                                 </div>
                             </div>
 
@@ -215,11 +215,11 @@ if (isset($_POST['save-infor'])) {
                                 <input type="text" name="email" id="email-user" value="<?= htmlspecialchars($user['email'] ?? ''); ?>" disabled>
                             </div>
                             <div class="text">
-                                <label for="dob">Ngày sinh:</label>
+                                <label for="dob">Date of Birth:</label>
                                 <input type="date" name="dob" id="dob" value="<?= htmlspecialchars($user['dateob'] ?? ''); ?>" disabled>
                             </div>
                             <div class="text">
-                                <label for="gender">Giới tính:</label>
+                                <label for="gender">Gender:</label>
                                 <select name="gender" id="gender" disabled>
                                     <option value="male" <?= ($user['gender'] ?? '') == 'male' ? 'selected' : ''; ?>>Nam</option>
                                     <option value="female" <?= ($user['gender'] ?? '') == 'female' ? 'selected' : ''; ?>>Nữ</option>
@@ -239,11 +239,11 @@ if (isset($_POST['save-infor'])) {
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Tên Sản Phẩm</th>
-                            <th>Số Lượng</th>
-                            <th>Giá</th>
-                            <th>Ngày Mua</th>
-                            <th>Tinh trang</th>
+                            <th>Name products</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Date</th>
+                            <th>Status</th>
 
                         </tr>
                     </thead>
@@ -295,11 +295,11 @@ if (isset($_POST['save-infor'])) {
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Tên Sản Phẩm</th>
-                            <th>Số Lượng</th>
-                            <th>Giá</th>
-                            <th>Ngày Mua</th>
-                            <th>Tinh trang</th>
+                            <th>Name products</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Date</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -349,8 +349,8 @@ if (isset($_POST['save-infor'])) {
                             <th>STT</th>
                             <th>Subject</th>
                             <th>Content</th>
-                            <th>Ngày gui</th>
-                            <th>Tinh trang</th>
+                            <th>Name</th>
+                            <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
