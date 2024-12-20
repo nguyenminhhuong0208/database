@@ -18,7 +18,7 @@
 
 ## Giới thiệu
 
-- Link trải nghiệm : [web](http://greeaantea.greenteawebsite.great-site.net/index.php)
+- Link trải nghiệm : [web](http://uocgimuoidiembtl.infinityfreeapp.com/)
 - Account trải nghiệm :
   - User :
     - email : quaMon@gmail.com
@@ -54,7 +54,7 @@ Admin :
 
 ## Cách cài đặt
 
-1. Trải nghiệm web ở [đây](http://greeaantea.greenteawebsite.great-site.net/index.php).
+1. Trải nghiệm web ở [đây](http://uocgimuoidiembtl.infinityfreeapp.com/).
    
 2. Thêm xoá sửa code :
 - Cài đặt XAMPP : [link hướng dẫn](https://www.youtube.com/watch?v=IIKOHBi3SU8&list=PLyxSzL3F7487f2BrlHKg87WlUEennWOKu).
