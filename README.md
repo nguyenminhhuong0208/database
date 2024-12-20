@@ -4,9 +4,11 @@
 
 1. [Tác giả](#tác-giả)
 2. [Giới thiệu](#giới-thiệu)
-3. [Database](#database)
-4. [Cách cài đặt](#cách-cài-đặt)
-5. [DEMO](#demo)
+3. [Các tính năng nổi bật](#các-tính-năng-nổi-bật)
+4. [Database](#database)
+5. [Cách cài đặt](#cách-cài-đặt)
+6. [DEMO](#demo)
+7. [Lời cảm ơn](#lời-cảm-ơn)
 
 ## Tác giả
 
@@ -16,8 +18,14 @@
 
 ## Giới thiệu
 
-- Một trang web hữu ích dành cho người bán và người mua trà xanh.
 - Link trải nghiệm : [web](http://greeaantea.greenteawebsite.great-site.net/)
+- Account trải nghiệm :
+  - email : quaMon@gmail.com
+  - password : Quamon10***
+
+- Lưu ý : Web bọn mình đang bị cảnh báo giả mạo, nhưng không sao ạ, cứ tiếp tục vào web ạ, bọn mình sẽ khắc phục lỗi này ạ!
+  
+- Một trang web hữu ích dành cho người bán và người mua trà xanh.
 
 Customer : 
 - Cung cấp cho người mua nhưng sản phẩm trà xanh ngon, bổ , rẻ.
@@ -28,6 +36,14 @@ Admin :
 - Thêm, xoá, sửa các loại sản phẩm vào cửa hàng.
 - Xem được số người dùng đã đăng kí tài khoản.
 - Xem những sản phẩm được order, góp ý của người dùng.
+
+## Các tính năng nổi bật:
+
+- Bên cạnh nhưng tính năng cơ bản về mua hàng bên trên, web đã có thêm :
+- Lọc tìm kiếm sản phẩn theo nhiều lượng mua nhất, theo bảng chữ cái.
+- Tìm kiếm sản phẩm theo nhu cầu người dùng.
+- Gợi ý sản phẩm theo lịch sử order
+- Có các voucher khuyến mại
 
 ## Database
 ![database](https://drive.google.com/uc?id=1_u0UFAdwv-HmxZL_3jj60AtBOJ0MRLxj)
@@ -51,3 +67,7 @@ Admin :
   ![admin](https://drive.google.com/uc?id=1aVMBvFvb4Q0UlfPsyiBQuAJs7PE3-GB9)
 
   Nguồn tham khảo: Youtube
+
+## Lời cảm ơn
+
+- Tuy nhóm chúng mình còn nhiều thiếu sót nhưng sẽ cố gắng hơn trong tương lai để phát triển, xin cảm ơn mọi người đã xem qua web bọn mình !
