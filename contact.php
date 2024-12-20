@@ -11,6 +11,7 @@ if (isset($_SESSION['user_id'])) {
 // Message sending
 
 if (isset($_POST['submit-btn'])) {
+    $id = unique_id();
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
     $message = $_POST['message'];
@@ -18,10 +19,8 @@ if (isset($_POST['submit-btn'])) {
 
     // Insert message into database 
     $insert_message = $conn->prepare("INSERT INTO `message` (id,user_id, name, email, message) VALUES (?,?, ?, ?, ?)");
-    $insert_message->execute([$id,$user_id, $name, $email, $message]);
+    $insert_message->execute([$id, $user_id, $name, $email, $message]);
     $success_msg[] = 'Message sent successfully!';
-
-
 }
 ?>
 
@@ -45,7 +44,7 @@ if (isset($_POST['submit-btn'])) {
         <div class="banner">
             <h1>Contact us</h1>
         </div>
-        <form  class="form-container" action="" method="post">
+        <form class="form-container" action="" method="post">
             <div class="title">
                 <img src="img/download.png" class="logo">
                 <h1>Leave a message</h1>
