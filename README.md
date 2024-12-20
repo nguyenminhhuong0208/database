@@ -20,8 +20,12 @@
 
 - Link trải nghiệm : [web](http://greeaantea.greenteawebsite.great-site.net/)
 - Account trải nghiệm :
-  - email : quaMon@gmail.com
-  - password : Quamon10***
+  - User :
+    - email : quaMon@gmail.com
+    - password : Quamon10***
+  - Admin :
+    - email : 123@gmail.com
+    - password : 123
 
 - Lưu ý : Web bọn mình đang bị cảnh báo giả mạo, nhưng không sao ạ, cứ tiếp tục vào web ạ, bọn mình sẽ khắc phục lỗi này ạ!
   
