@@ -2,14 +2,13 @@
 include 'components/connection.php';
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    $_SESSION['user_id'] = ''; 
+    $_SESSION['user_id'] = '';
 }
 
-if(isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-}else{
+} else {
     $user_id = '';
-
 }
 
 
@@ -127,7 +126,7 @@ if (isset($_POST['logout'])) {
                         <h1>Visit our beautiful showroom!</h1>
                         <p>🌿 Here, you can explore a carefully curated selection of premium green teas sourced from the finest tea gardens across the globe. From the vibrant notes of matcha to the soothing aroma of jasmine-infused blends, our collection caters to every tea lover's taste.
 
-Not only will you find a variety of exquisite teas, but our showroom also features an array of high-quality tea brewing accessories, including traditional teapots, cups, and matcha whisk sets to elevate your tea experience. Our knowledgeable staff is always on hand to guide you through the selection process, offer brewing tips, and share the rich history and health benefits of green tea.</p>
+                            Not only will you find a variety of exquisite teas, but our showroom also features an array of high-quality tea brewing accessories, including traditional teapots, cups, and matcha whisk sets to elevate your tea experience. Our knowledgeable staff is always on hand to guide you through the selection process, offer brewing tips, and share the rich history and health benefits of green tea.</p>
                         <a href="view_products.php" class="btn"> Shop now</a>
 
                     </div>
@@ -139,8 +138,8 @@ Not only will you find a variety of exquisite teas, but our showroom also featur
                     <img src="img/download.png" alt="" class="logo">
                     <h1>What people say about us</h1>
                     <p>
-                    A magnificent trio of titans, united by vision, strength, and wisdom, forms an unstoppable force capable of shaping worlds and conquering any challenge.</p>
-                     <p>Each brings unmatched brilliance to the group, creating a harmonious balance that elevates them to legendary status.</p>
+                        A magnificent trio of titans, united by vision, strength, and wisdom, forms an unstoppable force capable of shaping worlds and conquering any challenge.</p>
+                    <p>Each brings unmatched brilliance to the group, creating a harmonious balance that elevates them to legendary status.</p>
                 </div>
 
                 <div class="container">
@@ -153,7 +152,7 @@ Not only will you find a variety of exquisite teas, but our showroom also featur
                         <img src="img/02.jpg" alt="">
                         <h1>Nguyen Minh Huong</h1>
                         <p>
-                        She is a beautiful, smart, and amazing girl who effortlessly captivates everyone around her. Her intelligence is matched only by her grace, and she handles every challenge with confidence and poise. Whether through her sharp wit or her compassionate nature, she inspires those fortunate enough to know her. Her beauty isn't just skin deep; it's reflected in her character, kindness, and ability to make the world a better place. She's a true embodiment of strength, wisdom, and elegance, leaving a lasting impression wherever she goes.</p>
+                            She is a beautiful, smart, and amazing girl who effortlessly captivates everyone around her. Her intelligence is matched only by her grace, and she handles every challenge with confidence and poise. Whether through her sharp wit or her compassionate nature, she inspires those fortunate enough to know her. Her beauty isn't just skin deep; it's reflected in her character, kindness, and ability to make the world a better place. She's a true embodiment of strength, wisdom, and elegance, leaving a lasting impression wherever she goes.</p>
                     </div>
                     <div class="testimonial-item">
                         <img src="img/03.jpg" alt="">
@@ -168,13 +167,13 @@ Not only will you find a variety of exquisite teas, but our showroom also featur
             </div>
         </div>
 
-        <!-- <?php //include 'components/footer.php';
-        ?> -->
+        <?php include 'components/footer.php';
+        ?>
 
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-        <script type="text/javascript" src="script.js"></script>
-        <?php include 'components/alert.php'; ?>
-    </body>
-    
-    </html>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <?php include 'components/alert.php'; ?>
+</body>
+
+</html>
