@@ -1,8 +1,8 @@
 <div class="top-footer">
-    <h2><i class="bx bx-envelope"></i>Sign Up For Newsletter</h2>
+    <h2><i class="bx bx-envelope"></i>Thanks for your support</h2>
     <div class="input-field">
-        <input type="text" name="" placeholder="email address...">
-        <button class="btn">Subscribe</button>
+        <input type="text" id="nameInput" placeholder="enter your name...">
+        <button class="btn" id="donateButton">Subscribe</button>
     </div>
 </div>
 <footer>
@@ -38,6 +38,42 @@
         <div class="bottom-footer">
             <p>all right reserved - code with mySQL</p>
         </div>
+        <div class="block-container" id="hiddenContent" style="display:none;">
+            <label id="thanksLabel">Thanks for donate us</label>
+            <div class="flex-box">
+                <div class="block">
+                    <img src="img/tuyenBank.jpg" class="image">
+                    <label>tuyen</label>
+                </div>
+                <div class="block">
+                    <img src="img/thuongBank.jpg" class="image">
+                    <label>thuong</label>
+                </div>
+                <div class="block">
+                    <img src="img/tuyenBank.jpg" class="image">
+                    <label>huong</label>
+                </div>
+            </div>
+        </div>
     </div>
-</footer>
 
+    <script>
+    const nameInput = document.getElementById('nameInput');
+    const thanksLabel = document.getElementById('thanksLabel');
+
+    function scrollPageDown() {
+        const hiddenContent = document.getElementById('hiddenContent');
+        if (hiddenContent.style.display === 'none') {
+            hiddenContent.style.display = 'flex';
+            thanksLabel.textContent = "Thank " + nameInput.value + " for donate us!" || "hehe";
+        }
+
+        hiddenContent.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
+    document.getElementById("donateButton").addEventListener("click", scrollPageDown);
+    </script>
+
+</footer>

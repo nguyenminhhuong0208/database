@@ -18,10 +18,14 @@
 
 ## Giới thiệu
 
-- Link trải nghiệm : [web](http://greeaantea.greenteawebsite.great-site.net/)
+- Link trải nghiệm : [web](http://uocgimuoidiembtl.infinityfreeapp.com/)
 - Account trải nghiệm :
-  - email : quaMon@gmail.com
-  - password : Quamon10***
+  - User :
+    - email : quaMon@gmail.com
+    - password : Quamon10***
+  - Admin :
+    - email : 123@gmail.com
+    - password : 123
 
 - Lưu ý : Web bọn mình đang bị cảnh báo giả mạo, nhưng không sao ạ, cứ tiếp tục vào web ạ, bọn mình sẽ khắc phục lỗi này ạ!
   
@@ -46,11 +50,11 @@ Admin :
 - Có các voucher khuyến mại
 
 ## Database
-![database](https://drive.google.com/uc?id=1_u0UFAdwv-HmxZL_3jj60AtBOJ0MRLxj)
+![database](https://drive.google.com/uc?id=1cpJtQZON3P_qQwUI_GgbnA9dDy6LkZm2)
 
 ## Cách cài đặt
 
-1. Trải nghiệm web ở [đây](http://greeaantea.greenteawebsite.great-site.net/).
+1. Trải nghiệm web ở [đây](http://uocgimuoidiembtl.infinityfreeapp.com/).
    
 2. Thêm xoá sửa code :
 - Cài đặt XAMPP : [link hướng dẫn](https://www.youtube.com/watch?v=IIKOHBi3SU8&list=PLyxSzL3F7487f2BrlHKg87WlUEennWOKu).

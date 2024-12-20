@@ -93,17 +93,15 @@
                     $select_products->execute();
                     if ($select_products->rowCount() > 0) {
                         while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
-            ?>
+                            $product_details = $fetch_products['product_detail'];
+                            ?>
             <form method="post">
                 <img src="image/<?php echo $fetch_products['image']; ?>">
                 <div class="detail">
                     <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
                     <div class="name"><?php echo $fetch_products['name']; ?></div>
                     <div class="detail">
-                        <p>Our ceremonial-grade matcha powder is a true taste of Japan. Grown in the shade and stone-ground to preserve its vibrant green color and rich nutrients, 
-                            our matcha offers a unique umami flavor and a smooth, creamy texture. Packed with antioxidants and L-theanine, 
-                            our matcha provides a natural energy boost without the jitters. 
-                            Whether you're a matcha connoisseur or simply looking to incorporate more superfoods into your diet, our matcha is the perfect choice.</p>
+                    <p><?php echo htmlspecialchars($product_details); ?></p>
                     </div>
                     <input type="hidden" name="product_id" value="<?php echo $fetch_products['id']; ?>">
                     <div class="button">

@@ -512,3 +512,218 @@ header.scrolled a:hover {
   margin-top: 3rem;
   text-transform: capitalize;
 }
+
+.flex-box {
+  display: flex;
+  align-items: center; /* Căn giữa theo trục dọc */
+  gap: 10px; /* Khoảng cách giữa các phần tử */
+}
+
+.flex-box input {
+  flex: 0.1; /* Để input chiếm phần lớn không gian */
+}
+
+.flex-box label {
+  margin: 0;
+  color: #024115;
+}
+
+.margin {
+  margin-top: 100px;
+}
+
+/*---------voucher------------*/
+.zigzag-border {
+  margin-top: 20px;
+  position: relative;
+  background: #017c3e;
+  padding: 20px;
+  color: #000;
+  text-align: center;
+  clip-path: polygon(
+    0% 5%,
+    10% 0%,
+    20% 5%,
+    30% 0%,
+    40% 5%,
+    50% 0%,
+    60% 5%,
+    70% 0%,
+    80% 5%,
+    90% 0%,
+    100% 5%,
+    100% 95%,
+    90% 100%,
+    80% 95%,
+    70% 100%,
+    60% 95%,
+    50% 100%,
+    40% 95%,
+    30% 100%,
+    20% 95%,
+    10% 100%,
+    0% 95%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  padding: 4rem;
+}
+.zigzag-border .wave-border {
+  position: absolute;
+  top: 10px; /* Đặt viền sóng cách mép trên một chút */
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  clip-path: polygon(
+    0% 5%,
+    10% 0%,
+    20% 5%,
+    30% 0%,
+    40% 5%,
+    50% 0%,
+    60% 5%,
+    70% 0%,
+    80% 5%,
+    90% 0%,
+    100% 5%,
+    100% 95%,
+    90% 100%,
+    80% 95%,
+    70% 100%,
+    60% 95%,
+    50% 100%,
+    40% 95%,
+    30% 100%,
+    20% 95%,
+    10% 100%,
+    0% 95%
+  );
+
+  background: #b8ecb6;
+  z-index: 1;
+}
+
+.zigzag-border label {
+  font-weight: bold;
+  margin: 0;
+  z-index: 2; /* Đảm bảo label nằm trên viền */
+  position: relative;
+  color: #000;
+}
+
+.zigzag-border .voucher-description {
+  font-size: 40px;
+  color: #0a2902;
+}
+
+.zigzag-border .voucher-discount {
+  font-size: 24px;
+  color: #0a2902;
+}
+
+.zigzag-border .voucher-quantity {
+  font-size: 16px;
+  color: #0a2902;
+}
+
+/*----------footer section------------*/
+.top-footer {
+  width: 100%;
+  background: var(--green);
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.top-footer h2 i {
+  margin-right: 0.5rem;
+}
+.top-footer input {
+  width: 40vw;
+}
+footer {
+  background-image: url("../img/0.webp");
+  width: 100%;
+  min-height: 73vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+footer .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.5;
+}
+.footer-content i {
+  position: absolute;
+  top: 10%;
+}
+.footer-content .img-box {
+  text-align: center;
+}
+footer .inner-footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax (18rem, 1fr));
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  color: #fff;
+}
+footer .inner-footer .card {
+  margin: 0.5rem;
+}
+footer .inner-footer .card li {
+  cursor: pointer;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+footer .inner-footer .card li:nth-child(1),
+footer .inner-footer .card h3 {
+  text-transform: uppercase;
+}
+footer .inner-footer .card p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 26px;
+}
+footer .inner-footer .card .social-link {
+  margin-top: 1rem;
+}
+footer .inner-footer .card .social-links i {
+  width: 50px;
+  height: 50px;
+  line-height: 30px;
+  border-radius: 50%;
+  background: #000;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  color: var(--green);
+  cursor: pointer;
+  padding: 0.6rem;
+  font-size: 1.3rem;
+}
+footer .inner-footer .card .social-links i:hover {
+  background: var(--green);
+  color: #fff;
+}
+footer .bottom-footer {
+  text-transform: capitalize;
+  text-align: center;
+  padding: 3rem 0;
+  color: #fff;
+  padding-bottom: 1rem;
+}

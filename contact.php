@@ -25,7 +25,8 @@ if (isset($_POST['submit-btn'])) {
 ?>
 
 <style type="text/css">
-    <?php include 'style.css'; ?>
+<?php include 'style.css';
+?>
 </style>
 
 <!DOCTYPE html>
@@ -44,26 +45,29 @@ if (isset($_POST['submit-btn'])) {
         <div class="banner">
             <h1>Contact us</h1>
         </div>
+        <div class="title2">
+            <a href="home.php">HOME</a><span> / CONTACT US</span>
+        </div>
         <form class="form-container" action="" method="post">
             <div class="title">
                 <img src="img/download.png" class="logo">
                 <h1>Leave a message</h1>
             </div>
             <div class="input-field">
-                <p>Your name <sup>*<sup></p>
+                <p>Your name </p>
                 <input type="text" name="name">
             </div>
             <div class="input-field">
-                <p>Your email <sup>*<sup></p>
+                <p>Your email</p>
                 <input type="email" name="email">
             </div>
             <div class="input-field">
-                <p>Your message <sup>*<sup></p>
+                <p>Your message</p>
                 <textarea name="message" id=""></textarea>
             </div>
             <button type="submit" name="submit-btn" class="btn">Send message</button>
             <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
-                <!-- <p class="success-message">Message sent successfully!</p> -->
+            <!-- <p class="success-message">Message sent successfully!</p> -->
             <?php endif; ?>
         </form>
     </div>
