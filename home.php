@@ -18,7 +18,8 @@ if (isset($_POST['logout'])) {
 ?>
 
 <style type="text/css">
-    <?php include 'style.css'; ?>
+<?php include 'style.css';
+?>
 </style>
 
 <!DOCTYPE html>
@@ -29,7 +30,6 @@ if (isset($_POST['logout'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <title>Green Coffee - home page</title>
-    <script src="game.js" defer></script>
 </head>
 
 <body>
@@ -38,10 +38,8 @@ if (isset($_POST['logout'])) {
     <script src="script.js"></script>
     <?php include 'components/alert.php'; ?>
 
-    <audio autoplay loop>
-        <source src="images/.mp3" type="audio/mpeg">
-    </audio>
 
+    <div id="user-data" data-user-id="<?php echo htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8'); ?>"></div>
     <div class="main">
         <div class="banner">
             <h1>dashboard</h1>
@@ -57,40 +55,40 @@ if (isset($_POST['logout'])) {
                 </div>
                 <div class="box">
                     <?php
-                    $select_product = $conn->prepare("SELECT * FROM `products`");
-                    $select_product->execute();
-                    $num_of_products = $select_product->rowCount();
-                    ?>
+                            $select_product = $conn->prepare("SELECT * FROM `products`");
+                            $select_product->execute();
+                            $num_of_products = $select_product->rowCount();
+                            ?>
                     <h3><?= $num_of_products; ?></h3>
                     <p>All Products</p>
                     <a href="view_products.php" class="btn">View products</a>
                 </div>
                 <div class="box">
                     <?php
-                    $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE user_id= ?");
-                    $select_orders->execute([$user_id]);
-                    $num_of_orders = $select_orders->rowCount();
-                    ?>
+                            $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE user_id= ?");
+                            $select_orders->execute([$user_id]);
+                            $num_of_orders = $select_orders->rowCount();
+                        ?>
                     <h3><?= $num_of_orders; ?></h3>
                     <p>Your orders</p>
                     <a href="view_order.php" class="btn">view your orders</a>
                 </div>
                 <div class="box">
                     <?php
-                    $select_wishlist = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id= ?");
-                    $select_wishlist->execute([$user_id]);
-                    $num_of_wishlist = $select_wishlist->rowCount();
-                    ?>
+                            $select_wishlist = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id= ?");
+                            $select_wishlist->execute([$user_id]);
+                            $num_of_wishlist = $select_wishlist->rowCount();
+                        ?>
                     <h3><?= $num_of_wishlist; ?></h3>
                     <p>Your Wishlist</p>
                     <a href="wishlist.php" class="btn">view your wishlist</a>
                 </div>
                 <div class="box">
                     <?php
-                    $select_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id= ?");
-                    $select_cart->execute([$user_id]);
-                    $num_of_cart = $select_cart->rowCount();
-                    ?>
+                            $select_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id= ?");
+                            $select_cart->execute([$user_id]);
+                            $num_of_cart = $select_cart->rowCount();
+                        ?>
                     <h3><?= $num_of_cart; ?></h3>
                     <p>Your cart</p>
                     <a href="cart.php" class="btn">View your cart</a>
@@ -98,7 +96,8 @@ if (isset($_POST['logout'])) {
                 <div class="box">
                     <p>Do you want to play game?</p>
                     <button id="game" class="btn" onclick="playPickleBallMusic()">Play PickleBall</button>
-                    <button id="outGameButton" class="btn" style="display:none;" onclick="pausePickleBallMusic()">Pause</button>
+                    <button id="outGameButton" class="btn" style="display:none;"
+                        onclick="pausePickleBallMusic()">Pause</button>
 
                     <div id="scoreDisplay" class="score">Score: 0</div>
                     <div id="maxScoreDisplay" class="score">Max Score: 0</div>

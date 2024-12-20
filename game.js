@@ -3,6 +3,9 @@ const context = canvas.getContext("2d");
 const startGameButton = document.getElementById("game");
 const outGameButton = document.getElementById("outGameButton");
 
+const userElement = document.getElementById("user-data");
+const userId = userElement.getAttribute("data-user-id");
+
 const paddleWidth = 200,
   paddleHeight = 7,
   ballRadius = 30;
@@ -16,11 +19,14 @@ let maxScore = 0;
 const ballImage = new Image();
 ballImage.src = "img/tom1.jpg";
 
+let earnedVouchers = []; // Lưu danh sách voucher đã nhận
+let vouchers = []; // Chứa thông tin về voucher từ server
+
 function resetBall() {
   ballX = canvas.width / 2;
   ballY = canvas.height / 2;
-  ballSpeedX = 20;
-  ballSpeedY = 20;
+  ballSpeedX = 6;
+  ballSpeedY = 6;
 }
 
 function drawEverything() {
@@ -77,6 +83,7 @@ function moveEverything() {
     }
 
     scoreDisplay.textContent = "Score: " + score;
+    checkForVouchers();
   }
 
   if (ballY < ballRadius) {
@@ -123,6 +130,7 @@ ballImage.onload = function () {
     outGameButton.style.display = "inline-block";
     resetBall();
     isPlaying = true;
+    fetchVouchers();
     gameLoop();
   });
 
@@ -142,4 +150,63 @@ function playPickleBallMusic() {
 }
 function pausePickleBallMusic() {
   pickleBallMusic.pause();
+}
+
+// Hàm fetch để lấy vouchers từ server
+async function fetchVouchers() {
+  try {
+    const response = await fetch(
+      "get_voucher/api_get_voucher.php?category=game"
+    );
+    const text = await response.text(); // Nhận dữ liệu dưới dạng text
+    console.log(text); // In ra nội dung nhận được
+
+    // Kiểm tra và chuyển đổi dữ liệu nếu là JSON hợp lệ
+    try {
+      vouchers = JSON.parse(text); // Lưu mảng vouchers vào biến toàn cục
+      console.log("Vouchers fetched:", vouchers);
+      checkForVouchers(); // Sau khi có vouchers, gọi hàm kiểm tra
+    } catch (e) {
+      console.error("Error parsing JSON:", e);
+    }
+  } catch (error) {
+    console.error("Error fetching vouchers:", error);
+  }
+}
+
+// Hàm kiểm tra nếu có vouchers để nhận
+function checkForVouchers() {
+  console.error("Vouchers length:", vouchers.length); // Kiểm tra xem mảng vouchers có rỗng không
+  vouchers.forEach((voucher) => {
+    console.log("Voucher requirement:", voucher.requirement);
+    if (
+      score >= voucher.requirement && // Điểm đủ yêu cầu
+      !earnedVouchers.includes(voucher.id) // Chưa nhận voucher này
+    ) {
+      earnedVouchers.push(voucher.id); // Đánh dấu là đã nhận
+      giveVoucher(voucher.id); // Gửi yêu cầu nhận voucher
+    }
+  });
+}
+
+// Hàm gửi yêu cầu nhận voucher
+async function giveVoucher(voucherId) {
+  try {
+    const response = await fetch("get_voucher/api_give_voucher.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user_id: userId, voucher_id: voucherId }),
+    });
+
+    const result = await response.json();
+    if (result.error) {
+      alert("Congratulations for that score, but we ran out of this voucher");
+    } else {
+      alert("Congratulations! You earned a game voucher");
+    }
+  } catch (error) {
+    console.error("Error giving voucher:", error);
+  }
 }
