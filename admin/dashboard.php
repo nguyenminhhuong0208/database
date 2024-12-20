@@ -35,7 +35,6 @@
                         <div class="box">   
                                 <h3>welcome!</h3>
                                 <p><?= $fetch_profile['name']; ?></p>
-                                <a href="" class="btn">profile</a>
                         </div>
                         <div class="box">
                                 <?php

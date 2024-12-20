@@ -49,11 +49,10 @@ if(isset($_POST['logout'])) {
                 <a href="home.php">Home</a><span></span>
             </div>
             <section section class="dashboard">
-                <h1 class="heading">Home</h1>
                 <div class="box-container">
                     <div class="box">   
                             <h3>welcome!</h3>
-                            <a href="" class="btn">profile</a>
+                            <a href="" class="btn">Home</a>
                     </div>
                     <div class="box">
                         <?php
@@ -109,8 +108,9 @@ if(isset($_POST['logout'])) {
                         <script src="game.js"></script>
                     </div>
                 </div>
-        </section>
+            </section>
         </div>
+        <?php include 'components/footer.php'; ?>
     </main>
 </body>
 </html>

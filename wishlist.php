@@ -92,7 +92,7 @@
                 ?>
                 <form method="post" action="" class="box">
                     <input type="hidden" name="wishlist_id" value="<?=$fetch_wishlist['id']; ?>">
-                    <img src="img/<?= $fetch_products['image']; ?>" class ="img">
+                    <img src="image/<?= $fetch_products['image']; ?>" class ="img">
                     <div class="button">
                         <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
                         <a href="view_page.php?pid=<?php echo $fetch_wishlist['id']; ?>" class="bx bxs-show"></a>
