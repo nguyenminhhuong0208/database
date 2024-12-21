@@ -27,7 +27,8 @@
     - email : 123@gmail.com
     - password : 123
 
-- Lưu ý : Web bọn mình đang bị cảnh báo giả mạo, nhưng không sao ạ, cứ tiếp tục vào web ạ, bọn mình sẽ khắc phục lỗi này ạ!
+- ⚠️Lưu ý : Web bọn mình đang bị cảnh báo giả mạo, nhưng không sao ạ, cứ tiếp tục vào web ạ, bọn mình sẽ khắc phục lỗi này ạ!
+- ⚠️Lưu ý : Web có một số chức năng không hoàn chỉnh như khi bọn mình code ở local, do một vài vấn đề về việc update code lên web, bọn mình sẽ khắc phục sớm nhất có thể ạ ! :<
   
 - Một trang web hữu ích dành cho người bán và người mua trà xanh.
 
