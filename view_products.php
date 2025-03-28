@@ -46,11 +46,11 @@ if (isset($_POST['add_to_wishlist'])) {
 if (isset($_POST['add_to_cart'])) {
     $id = unique_id();
     $product_id = $_POST['product_id'];
-    
+
     // Kiểm tra và làm sạch giá trị qty
     $qty = $_POST['qty'];
     $qty = filter_var($qty, FILTER_SANITIZE_NUMBER_INT);  // Làm sạch input và đảm bảo là số nguyên
-    
+
     if ($qty <= 0 || $qty > 99) {
         $warning_msg[] = 'Invalid quantity. Please enter a number between 1 and 99.';
     } else {
@@ -78,36 +78,36 @@ if (isset($_POST['add_to_cart'])) {
     }
 }
 
-    $criteria = isset($_POST['criteria']) ? $_POST['criteria'] : "all products";
-    $valid_criteria = ["all products", "most ordered", "A to Z"];
-    
-    if (!in_array($criteria, $valid_criteria)) {
-        $criteria = "all products"; 
-    }
-    
-    if ($criteria === "most ordered") {
-            $query = "SELECT p.*, COUNT(o.product_id) AS purchase_count 
+$criteria = isset($_POST['criteria']) ? $_POST['criteria'] : "all products";
+$valid_criteria = ["all products", "most ordered", "A to Z"];
+
+if (!in_array($criteria, $valid_criteria)) {
+    $criteria = "all products";
+}
+
+if ($criteria === "most ordered") {
+    $query = "SELECT p.*, COUNT(o.product_id) AS purchase_count 
                       FROM products p 
                       LEFT JOIN orders o ON p.id = o.product_id 
                       GROUP BY p.id 
                       ORDER BY purchase_count DESC";
-        } elseif ($criteria === "A to Z") {
-            $query = "SELECT p.*, COUNT(o.product_id) AS purchase_count 
+} elseif ($criteria === "A to Z") {
+    $query = "SELECT p.*, COUNT(o.product_id) AS purchase_count 
                       FROM products p 
                       LEFT JOIN orders o ON p.id = o.product_id 
                       GROUP BY p.id 
-                      ORDER BY p.name ASC"; 
-        } else {
-            $query = "SELECT p.*, COUNT(o.product_id) AS purchase_count 
+                      ORDER BY p.name ASC";
+} else {
+    $query = "SELECT p.*, COUNT(o.product_id) AS purchase_count 
                       FROM products p 
                       LEFT JOIN orders o ON p.id = o.product_id 
                       GROUP BY p.id";
-        }
-        
-    
-    $search_product = $conn->prepare($query);
-    $search_product->execute();
-    ?>
+}
+
+
+$search_product = $conn->prepare($query);
+$search_product->execute();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -145,32 +145,41 @@ if (isset($_POST['add_to_cart'])) {
             <div class="box-container">
 
                 <?php if ($search_product->rowCount() > 0): ?>
-                <?php while ($fetch_products = $search_product->fetch(PDO::FETCH_ASSOC)): ?>
-                <form action="" method="post" class="box">
-                    <img src="image/<?= $fetch_products['image']; ?>" class="img">
+                    <?php while ($fetch_products = $search_product->fetch(PDO::FETCH_ASSOC)): ?>
+                        <form action="" method="post" class="box">
+                            <img src="image/<?= $fetch_products['image']; ?>" class="img">
 
-                    <div class="button">
-                        <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
-                        <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
-                        <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" class="bx bxs-show"></a>
-                    </div>
-                    <h3 class="name"><?= $fetch_products['name']; ?></h3>
-                    <input type="hidden" name="product_id" value="<?= $fetch_products['id']; ?>">
-                    <div class="flex">
-                        <p class="price">Price $<?= $fetch_products['price']; ?>/-</p>
-                        <input type="number" name="qty" required min="1" max="99" maxlength="2" class="qty" value="1">
-                    </div>
-                    <a href="checkout.php?get_id=<?= $fetch_products['id']; ?>" class="btn">Buy now</a>
+                            <div class="button">
+                                <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
+                                <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
+                                <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" class="bx bxs-show"></a>
+                            </div>
+                            <h3 class="name"><?= $fetch_products['name']; ?></h3>
+                            <input type="hidden" name="product_id" value="<?= $fetch_products['id']; ?>">
+                            <div class="flex">
+                                <p class="price">Price $<?= $fetch_products['price']; ?>/-</p>
 
-                    <div class="purchase-count">Ordered: <?= $fetch_products['purchase_count']; ?> times</div>
-                </form>
-                <?php endwhile; ?>
+                                <input type="number" name="qty" required min="1" max="99" maxlength="2" class="qty" value="1">
+
+                            </div>
+                            <a href="#" onclick="redirectToCheckout('<?= $fetch_products['id']; ?>')" class="btn">Buy now</a>
+
+                            <div class="purchase-count">Ordered: <?= $fetch_products['purchase_count']; ?> times</div>
+                        </form>
+                        <script>
+                            function redirectToCheckout(productId) {
+                                const qty = document.getElementById(`qty_${productId}`).value; // Lấy giá trị từ input
+                                const url = `checkout.php?get_id=${productId}&qty=${qty}`; // Tạo URL
+                                window.location.href = url; // Chuyển hướng
+                            }
+                        </script>
+                    <?php endwhile; ?>
                 <?php else: ?>
-                <div class="empty">
-                    <p>No product added yet!<br>
-                        <a href="add_products.php" style="margin-top:1.5rem;" class="btn">Add Product</a>
-                    </p>
-                </div>
+                    <div class="empty">
+                        <p>No product added yet!<br>
+                            <a href="add_products.php" style="margin-top:1.5rem;" class="btn">Add Product</a>
+                        </p>
+                    </div>
                 <?php endif; ?>
             </div>
         </section>

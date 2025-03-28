@@ -25,8 +25,8 @@ if (isset($_POST['submit-btn'])) {
 ?>
 
 <style type="text/css">
-<?php include 'style.css';
-?>
+    <?php include 'style.css';
+    ?>
 </style>
 
 <!DOCTYPE html>
@@ -67,7 +67,7 @@ if (isset($_POST['submit-btn'])) {
             </div>
             <button type="submit" name="submit-btn" class="btn">Send message</button>
             <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
-            <!-- <p class="success-message">Message sent successfully!</p> -->
+                <!-- <p class="success-message">Message sent successfully!</p> -->
             <?php endif; ?>
         </form>
     </div>
@@ -113,6 +113,8 @@ if (isset($_POST['submit-btn'])) {
                 </div>
             </div>
         </div>
+        <?php include 'components/footer.php';
+        ?>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="script.js"></script>

@@ -316,17 +316,28 @@ function closeModal() {
 // Hiển thị ảnh khi nhấn nút "Xem ảnh"
 function viewImage(event) {
   event.preventDefault();
-  const imageUrl = "../<?= $user['profile'] ?? 'image/0.jpg'; ?>"; // Địa chỉ ảnh
-  document.getElementById("image-preview").src = imageUrl; // Cập nhật src cho ảnh
-  document.getElementById("image-viewer").style.display = "block"; // Hiển thị ảnh trong modal
-  closeModal(); // Đóng modal chính nếu cần
+  const imageUrl = document.getElementById("user-image").src;
+  document.getElementById("image-preview").src = imageUrl;
+  const imagePreview = document.getElementById("image-preview");
+  imagePreview.onload = function () {
+    document.getElementById("image-viewer").style.display = "block";
+  };
+
+  closeModal();
 }
 
 // Đóng cửa sổ xem ảnh
-function closeImageViewer(event) {
-  event.preventDefault();
+function closeImageViewer() {
   document.getElementById("image-viewer").style.display = "none"; // Ẩn cửa sổ xem ảnh
 }
+
+document.addEventListener("click", function (event) {
+  var viewer = document.getElementById("image-viewer");
+
+  if (!viewer.contains(event.target)) {
+    closeImageViewer(); // Đóng viewer nếu click ngoài
+  }
+});
 
 // Chọn ảnh mới khi nhấn nút "Đổi ảnh"
 function changeImage(event) {
@@ -385,7 +396,7 @@ window.onclick = function (event) {
 function loadPage(page) {
   // Gửi yêu cầu AJAX để lấy dữ liệu của trang mới
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "your-php-file.php?page=" + page, true); // Thay 'your-php-file.php' bằng tên file PHP của bạn
+  xhr.open("GET", "profile.php?page=" + page, true); // Thay 'your-php-file.php' bằng tên file PHP của bạn
   xhr.onload = function () {
     if (xhr.status === 200) {
       // Chèn kết quả vào trong bảng (hoặc phần HTML khác)
